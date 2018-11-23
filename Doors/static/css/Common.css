@@ -1,0 +1,99 @@
+﻿@charset "utf-8";
+/* CSS Document */
+html{}
+body{}
+.mian{position:relative; margin-left:auto; margin-right:auto; min-width:320px; max-width:640px; overflow:hidden; background-color:#fff; font-family:Microsoft YaHei;}
+a{text-decoration:none; color:#666;}
+header{ overflow:hidden; width:100%; height:7em; background-color:#fff;}
+header h1{ width:30%; float:left; margin:5% 3% 0 4%;}
+header h1 img{ width:100%; display:block;}
+header .wen{ overflow:hidden; width:60%; float:left;}
+header h2{ font-size:1.1em; color:#ed1b23; margin-top:9%;}
+header p{ font-size:1em; color:#303030;}
+header a{ font-size:1em; color:#333;}
+header b{ color:#ed1b23}
+
+/*公共颜色调用*/
+.pagedSpan a{background:#333;}
+.CategoryList_Title i{color:#333;}
+.hdPhone p i{border:1px solid #fff;}
+ .pagedSpan a{color:#fff;}
+.pagedSpan{background:#feeddc;}
+
+
+.Copyright{overflow: hidden; text-align: center; margin-top: 0.5em;}
+.Copyright p{ line-height: 1.5em; font-size: 1em; color: #212121;}
+.Copyright p *{display: inline-block; font-size: 1em; color: #212121;}
+.Copyright p em{width: 0.3em; height: 0.1em;}
+/*-- Copyright_end --*/
+
+
+/*top*/
+.top{ overflow:hidden; width:96%; margin:0 auto; height:3em; background:url(../images/Index/topBg.png) left top repeat-x;}
+.top .phone{ font-size:1em; color:#333; padding-left:2em; background:url(../images/Index/phone.png) no-repeat left center; background-size:1.5em; line-height:3em; float:left; margin-left:5%;}
+.top .phone em{ font-size:1.3em; color:#d80007}
+.top .topBtn{ display:block; width:8%; float:right; margin-right:5%; margin-top:2%;}
+.top .topBtn img{ display:block; width:100%;}
+
+/*xinxi*/
+.xinxi{ overflow:hidden; width:96%; margin:0 auto; background-color:#fff; padding:1.5em 0; margin-bottom:4.3em;}
+.xinxi p{ font-size:1em; color:#333; line-height:1.5em; margin-left:6%; width:90%;}
+.xinxi a{ color:#333}
+.xinxi em{ margin:0 3%}
+
+/*footer*/
+footer{  overflow:hidden; width:100%; height:3.7em; background:url(../images/Common/footer.jpg) no-repeat center; background-size:100%; position:fixed; left:0; bottom:0}
+footer a{ display:block; width:25%; height:3.7em; float:left;}
+/*-- ftmenu_end --*/
+
+/*分类标题*/
+.CategoryList_Title{height:2.968em; line-height:2.968em; padding:0 .687em; color:#333; text-align:center; border-bottom:1px solid #b0b4bb; font-size:1.125em; background: linear-gradient(180deg , #f2f2f2 0% , #e0e0e0 100%);}
+.CategoryList_Title i{font-size:1.2em; margin-top:.75em;}
+.CategoryList_Title .icon-details{margin-right:.5em;}
+
+
+/*分类列表*/
+.CategoryLista{}
+.CategoryLista > li > a{height:3.031em; line-height:3.031em; display:block; color:#333; background:#f4f4f4; padding:0 1.125em; border-bottom:1px solid #cfcbc1; border-top:1px solid #fff; font-size:1.125em;}
+.CategoryLista li i{float:right; margin-top:.45em; color:#656565; font-weight:bold; font-size:1.6em;}
+.CategoryLista > li li a{height:3.031em; line-height:3.031em; overflow:hidden; white-space: nowrap; text-overflow:ellipsis; display:block; color:#666; background:#fff; padding:0 2.062em; border-bottom:1px solid #cfcbc1; border-top:1px solid #fff; font-size:1em;}
+.CategoryLista li:after {content:'.'; display:block; height:0; clear:both; visibility:hidden;}
+.CategoryLista .icon-arrow-down{color:#f90;}
+.CategoryLista > li > ul >li >ul{padding:0 1.125em;}
+.CategoryLista > li > .list1,.CategoryLista > li > .list1 li ul{display:none;}
+
+/*搜索*/
+.searchSpan{position:relative; overflow:hidden; margin:.687em;}
+.searchSpan .txtSearch{height:33px; border-radius:5px; border:1px solid #ddd; font-size:.75em; text-indent:.25em; width:99.9%; outline:none;}
+.searchSpan .btnSearch{position:absolute; right:0px; top:1px; border-radius:0 5px 5px 0; display:block; height:33px; line-height:33px; color:#333; width:2.5em; border-left:1px solid #ddd; border-right:1px solid #ddd; text-align:center; background:linear-gradient(180deg , #fff 0% , #ededed 100%);}
+
+
+
+.green{coor:Green}
+.red{color:Red}
+
+
+@media screen and (min-width:320px) {
+	body{font-size:75%;}
+    
+}
+@media screen and (min-width:375px) {
+	body{font-size:87.5%;}
+
+}
+@media screen and (min-width:480px) {
+	body{font-size:87.5%;}
+
+}
+@media screen and (min-width:540px) {
+	body{font-size:112.5%;}
+ 
+}
+@media screen and (min-width:550px) {
+	body{font-size:125%;}
+ 
+}
+@media screen and (min-width:640px) {
+	body{font-size:150%;}
+
+}
