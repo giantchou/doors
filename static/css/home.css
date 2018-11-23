@@ -1,0 +1,138 @@
+/*热搜词部分*/
+.chc-hotword-and-search-bar{padding: 0px 5px 0px 5px;background-color: #333;height: 50px;line-height: 50px}
+.chc-hotword-and-search-bar a{color: #fff;}
+.chc-hotword{font-size: 20px;font-weight: bold}
+.chc-hotword-right{line-height: 50px;}
+.chc-hotword-search{float: left;margin-top: 7px}
+
+/*left*/
+.chc-product-cate-left .title-1{
+    font-size: 20px;
+    width: 100%;
+    height: 64px;
+    line-height: 64px;
+    background-color: #252525;
+    color: #fff;
+    margin: 0 auto;
+    text-align: center;
+}
+.chc-nav-item{
+    display: block;
+    width: 100%;
+    line-height: 45px;
+    background-color: #d80007;
+
+}
+.chc-nav-item .product-cate1{
+    overflow: hidden;
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 10%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: url(/static/images/pron.jpg) repeat-x left center;
+}
+.chc-nav-item .product-cate1 a{
+    color: #fff;
+}
+.chc-product-cate-left .product-details{
+    display: block;
+    padding: 0;
+}
+.product-details{
+    overflow: hidden;
+    padding-bottom: 15px;
+    margin: 0 auto;
+}
+.product-details dd{
+    position: relative;
+}
+.product-details a{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    color: #fff;
+}
+.chc-product-cate-left .phone-01{
+    width: 100%;
+    height: 64px;
+    background-color: #252525;
+    color: #fff;
+    padding: 5px 0px 5px 0px;
+}
+.phone-icon{
+    background: url(/static/images/phImg.png) no-repeat right center;
+    float: left;
+    margin-left: 5px;
+    width: 62px;
+    height: 55px;
+    border-right: 1px dashed #fff;
+}
+.chc-product-cate-left .phone-01 span{
+    font-size: 10px;
+}
+.chc-product-cate-left .phone-01 p{
+    font-size: 20px;
+}
+/*right*/
+.chc-product-right ul{
+    list-style: none;
+}
+.chc-product-type{height: 80px}
+.chc-product-right ul li{
+    float: left;
+    font-size: 20px;
+    padding: 10px;
+    height: 30px;
+    line-height: 30px;
+    border-top: 3px solid #d80007;
+    border-bottom: 3px solid #d80007;
+    margin-right: 100px;
+}
+.chc-product-desc{height: 700px}
+
+.product-fengmian{
+    text-align: center;
+    background-color: #fff;
+    padding: 12px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+}
+.product-fengmian img{width: 100%;height: 300px;}
+.product-fengmian p{
+    margin-top: 5px;
+    font-size: 15px;
+}
+/*联系+沟通Btn*/
+.chc-relate-btn{
+    height: 60px;
+    line-height: 60px;
+}
+.relation-our{
+    height: 50px;
+    float: left;
+    background-color: #d80007!important;
+}
+.consult-at-once{
+    height: 50px;
+    float: right;
+    background-color: #393D49!important;
+}
+
+.chc-banner-01{
+    height: 400px;
+    margin-top: 20px;
+}
+.chc-up-and-down-slide{margin-top: 20px;height: 400px}
+.chc-up-and-down-slide ul{list-style: none}
+.chc-up-and-down-slide ul li{list-style: none;
+    height: 100px;
+    line-height: 100px;
+    background-color: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    padding-left: 10px;
+    font-size: 16px;
+}
+.chc-up-and-down-slide .slide-img{height: 100%}
+.chc-up-and-down-slide .slide-img img{width: 100%;height: 100%}

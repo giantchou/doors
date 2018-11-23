@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>layout 后台大布局 </title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  
+  <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+    {% block customcss %}
+    {% endblock %}
+    <style>
+            html body{
+            background-color: #f2f2f2;
+            color: #666;
+        }
+        .chc-header-daohang a{
+            border-right: 1px solid #333;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+        .chc-header-top{height: 30px;
+            top: 0px;
+            overflow: hidden;
+            border-bottom: 1px solid #dddddd;
+            line-height:30px;font-size: 12px;
+            color: #303030!important;}
+        .layui-breadcrumb a{color: #303030!important;}
+        .layui-breadcrumb a:hover{color: #eeeeee!important;}
+        .layui-fluid{bottom: 40px;}
+        .chc-header{height: 120px}
+        .chc-header  h2{font-size: 20px;
+            color: #ed1b23;    font-weight: bold;}
+        .chc-header dd p {
+            font-size: 16px;
+            color: #303030;
+        }
+        .chc-layui-logo{line-height: 120px;}
+        .chc-header-deatil{
+            margin-top: 45px;
+            line-height: 30px;
+        }
+        .phone {
+            overflow: hidden;
+            background: url(/static/images/phone.png) no-repeat right center;
+            float: right;
+            margin-top: 25px;
+            text-align: right;
+            padding-right: 50px;
+        }
+        .phone h3 {
+            font-size: 24px;
+            color: #ed1b23;
+            font-weight: normal;
+        }
+        .header_nav {
+            overflow: hidden;
+            width: 100%;
+            height: 55px;
+            background-color: #d80007;
+        }
+        .header_nav li {
+            float: left;
+            font-size: 14px;
+            line-height: 55px;
+            background: url(/static/images/navBor.png) repeat-y right top;
+            white-space: nowrap;
+        }
+        .header_nav li.cur a, .header_nav li:hover a {
+            color: #333;
+        }
+
+        .header_nav li a {
+            color: #fff;
+            display: block;
+            text-decoration: none;
+            padding: 0 26px;
+        }
+        .header_nav li.cur, .header_nav li:hover {
+            background: #f1f1f1;
+        }
+        .chc-content{margin-bottom: 100px}
+    </style>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-fluid chc-header-top layui-hide-xs">
+        <div class="layui-container">
+            <div class="layui-row ">
+                <div class="layui-col-md4">
+                    <p>金洋九峰，为您提供安全、坚固、耐用的大门</p>
+                </div>
+                <div class="layui-col-md4">
+                    &nbsp;
+                </div>
+                <div class="layui-col-md4" style="float: right">
+                    <span  class="chc-header-daohang">
+                      <a href="">收藏本站</a>
+                      <a href="">在线留言</a>
+                      <a href="">网站地图</a>
+                      <a href="">关于金洋</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="layui-container">
+
+        <div class="layui-row chc-header">
+            <div class="layui-col-md6 layui-col-sm12 layui-col-xs12">
+                <div class="layui-row">
+                    <div class="layui-col-md4 layui-col-xs4 chc-layui-logo">
+
+                                <img src="/static/images/LOGO.png" style="width: 90%">
+
+                    </div>
+                    <div class="layui-col-md8 layui-col-xs8 chc-header-deatil">
+                        <h2>专业的门面形象专家</h2><p>10年专注一站式门道系统解决方案</p>
+                        <a href="tel:139-1063-0394" class="layui-hide-md">全国免费服务热线：<b>139-1063-0394</b></a>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md2 layui-hide-xs">
+                &nbsp;
+            </div>
+            <div class="layui-col-md4 layui-hide-xs">
+                <div class="phone">
+                    <p>
+                        全国免费服务热线</p>
+                    <h3>139-1063-0394</h3>
+                        139-1063-0394
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="header_nav">
+        <ul class="layui-container">
+            <li class="cur"><a href="/">金洋首页</a></li>
+            <li><a href="/ddssm.htm">电动伸缩门</a></li>
+            <li><a href="/zndz.htm">智能道闸</a></li>
+            <li><a href="/tydmwl.htm ">别墅庭院大门</a></li>
+            <li><a href="/Product/">产品中心</a></li>
+            <li><a href="/jyjfgcalzs.htm">成功案例</a></li>
+            <li><a href="/news/">新闻资讯</a></li>
+            <li><a href="/Helps/aboutus.html">关于金洋</a></li>
+            <li><a href="/qysl.htm">企业实力</a></li>
+        </ul>
+
+    </div>
+
+
+  
+  <div class="chc-content">
+    <!-- 内容主体区域 -->
+    {% block content %}
+     {% endblock %}
+  </div>
+  
+  <div class="layui-footer" style="left: 0!important;margin-top: 100px;">
+    <!-- 底部固定区域 -->
+    © layui.com - 底部固定区域
+  </div>
+</div>
+<script src="/static/layui/layui.js" charset="utf-8"></script>
+{% block customjs %}
+{% endblock %}
+
+</body>
+</html>
