@@ -264,3 +264,142 @@
     text-align: center;
 }
 .chc-caigou-btn button{background-color: #d80007}
+/* 本例子滑动css */
+.chc-slide-honor .title-2{margin: 20px 0px 20px 0px }
+.chc-slide-honor{text-align: center }
+.chc-slide-honor .t-red{color:  #d80007;font-weight: bold;}
+
+.picMarquee-left{ width:1140px;  overflow:hidden; position:relative;  }
+.picMarquee-left .bd ul{ overflow:hidden; zoom:1; }
+.picMarquee-left .bd ul li{ margin:0 8px; float:left; _display:inline; overflow:hidden; text-align:center;  }
+.picMarquee-left .bd ul li .pic{ text-align:center; }
+.picMarquee-left .bd ul li .pic img{ width:200px; height:160px; display:block; padding:2px; border:1px solid #ccc; }
+.picMarquee-left .bd ul li .pic a:hover img{ border-color:#999;  }
+.picMarquee-left .bd ul li .title{ line-height:24px;   }
+
+.picMarquee-left-photo{ width:100%;  overflow:hidden; position:relative; margin: 20px 0px 20px 0px }
+.picMarquee-left-photo .bd ul li .pic{ text-align:center; }
+.picMarquee-left-photo .bd ul li .pic img{ width:100%; height:100%; display:block; padding:2px; border:1px solid #ccc; }
+.picMarquee-left-photo .bd ul li .pic a:hover img{ border-color:#999;  }
+.picMarquee-left-photo .bd ul li .t-name{font-size: 16px;font-weight: bold;margin-top: 10px}
+.picMarquee-left-photo .bd ul li .t-desc{font-size: 15px;line-height: 25px}
+/*优势*/
+.chc-liyou{
+    height: 1620px;
+    position: relative;
+    background-color: #fff;
+    padding: 10px;
+}
+.chc-liyou .chc-youshi{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.chc-youshi-bg{
+    width: 100%;
+    height: 1229px;
+    background: url(/static/images/bg/youshiBg.jpg) no-repeat center top;
+}
+.chc-ad-1{height: 200px;width: 100%}
+.chc-ad-1 img
+{height: 100%;width: 100%}
+
+.chc-company{height: 400px}
+.chc-company {height: 400px}
+.chc-company .chc-company-img{height: 100%;}
+.chc-company .chc-company-img img{height: 100%;width: 100%}
+/*客户见证*/
+.chc-customer{margin: 20px 0px 20px 0px }
+
+
+
+/*动态*/
+.chc-behaviour{
+       height: 80px;
+}
+.chc-behaviour .layui-col-md4{height: 100%}
+.chc-behaviour .chc-bh{
+    border: 2px solid #e2e2e2;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+}
+.chc-behaviour-detail{height: 300px;}
+.chc-behaviour-detail .chc-img{
+    position: relative;
+    height: 100%;
+}
+.chc-behaviour-detail .chc-img img{
+    width: 100%;height: 100%;
+}
+.chc-behaviour-detail .chc-img .d-date{
+    position: absolute;
+    height: 90px;
+    line-height: 42px;
+    width: 90px;
+    top: 12px;
+    background-color: #d80007;
+    color: #fff;
+    text-align: center;
+}
+.chc-behaviour-detail .chc-img .d-date .d-day{
+   font-size: 35px;
+}
+.chc-dongtai li{height: 75px;border-bottom: 1px dashed #e2e2e2;padding: 5px 0px 5px 0px}
+.chc-dongtai .d-date{text-align: center;
+    line-height: 30px;
+    border-right: 1px solid #e2e2e2;
+}
+.chc-dongtai .d-date .d-day{font-size: 35px}
+.chc-dongtai .d-date .d-month-year{}
+.chc-dongtai .d-dongtai {
+    padding-left: 5px;
+}
+.chc-dongtai .d-dongtai .title{font-weight: bold;
+    height: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;}
+.chc-dongtai .d-dongtai .content{
+    height: 60px;
+    text-overflow: ellipsis;
+    overflow: hidden;}
+
+.chc-question{height: 100%;}
+.chc-question .infoList li{
+    height: 70px;padding: 5px 0px 5px 0px;
+    border-bottom: 1px dashed #e2e2e2;
+}
+.chc-question .question{
+    height: 23px;
+    width: 23px;
+    text-align: center;
+    background-color: #d80007;
+    color: #fff;
+    padding: 1px;
+}
+.chc-question .answer{
+    height: 23px;
+    width: 23px;
+    text-align: center;
+    background-color: #e2e2e2;
+    color: #fff;
+    padding: 1px;
+}
+.chc-question .q-title{
+    font-size: 16px;font-weight: bold;
+}
+.chc-question .chc-q{height: 20px}
+.chc-question .chc-a{height: 50px}
+
+/*友情链接*/
+.chc-url-link{margin: 40px 0px 20px 0px}
+.chc-link{font-size: 20px;font-weight: bold}
+.chc-link-friends{list-style: none}
+.chc-link-friends li{list-style: none;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #e2e2e2;
+    margin-bottom: 10px;
+}
