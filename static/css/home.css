@@ -136,3 +136,131 @@
 }
 .chc-up-and-down-slide .slide-img{height: 100%}
 .chc-up-and-down-slide .slide-img img{width: 100%;height: 100%}
+
+.cateT{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.chc-example-list ul{list-style: none;height: 50px}
+.chc-example-list ul li{list-style: none;
+    height: 50px;
+    background-color: #fff;
+    float: left;
+    width: 19.9%;
+    border-right: 1px solid #f2f2f2;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+}
+.chc-example-list ul li:hover{
+    background-color: #d80007;
+    color: #fff;
+}
+.chc-example{
+    height: 300px;
+}
+.chc-example .door {
+    text-align: center;
+    background-color: #fff;
+    padding: 12px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+}
+.chc-example .door img{
+    width: 100%;height: 100%;
+}
+.chc-banner-02{
+    overflow: hidden;
+    width: 100%;
+    height: 130px;
+    /*background-size:cover;*/
+    /*background: url(/static/images/banner/case_ad.png) no-repeat;*/
+    margin-bottom: 60px;
+    color: #ffffff;
+
+}
+.chc-banner-02 .c-red{
+    background-color:#d80007 ;
+    height: 100%;line-height: 50px;
+    padding:5px ;
+}
+.chc-banner-02 .c-red .c-p-1{
+    font-size: 16px;
+}
+.chc-banner-02 .c-red .c-p-2{
+    font-size: 20px;font-weight: bold;
+}
+.chc-banner-02 .c-black{
+    background-color: black;
+    height: 100%;
+    line-height: 50px;
+}
+.chc-banner-02 .c-black .phone-01{
+       margin-top: 17px;
+}
+.chc-banner-02 .c-black .phone-01 .phone-icon{
+    background: url(/static/images/phImg.png) no-repeat right center;
+    float: left;
+    margin-left: 5px;
+    width: 62px;
+    height: 55px;
+    border-right: none!important;
+
+}
+.chc-worry{
+    background: url(/static/images/bg/worryBg.jpg) no-repeat center;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.chc-worry .t-desc{
+    list-style: none;
+    margin-top: 200px;
+}
+.chc-worry .t-desc li{
+    list-style: none;
+    height: 80px;
+    line-height: 40px;
+    padding: 4px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.chc-advantage{
+    background: url(/static/images/bg/getBg.jpg) no-repeat center;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin: 20px 0px 20px 0px;
+}
+.chc-advantage .t-desc{
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 100px;
+
+}
+.chc-four-feature{
+    margin-top: 220px;
+}
+.chc-four-feature .feature{
+    padding: 5px;
+    height: 150px;
+    width: 130px;
+    box-shadow: 5px -5px 3px #F0F0F0;
+    border-radius: 2px;
+    background-color: #fff;
+    line-height: 67px;
+    text-align: center;
+    color: black;
+}
+.chc-four-feature .feature p{
+    font-size: 21px;
+    font-weight: bold;
+}
+.chc-caigou-btn{
+    margin-top: 20px;
+    text-align: center;
+}
+.chc-caigou-btn button{background-color: #d80007}
