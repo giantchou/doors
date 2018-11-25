@@ -270,6 +270,8 @@
 .chc-slide-honor .t-red{color:  #d80007;font-weight: bold;}
 
 .picMarquee-left{ width:1140px;  overflow:hidden; position:relative;  }
+.picMarquee-left .bd .tempWrap{ width: 100%!important;}
+
 .picMarquee-left .bd ul{ overflow:hidden; zoom:1; }
 .picMarquee-left .bd ul li{ margin:0 8px; float:left; _display:inline; overflow:hidden; text-align:center;  }
 .picMarquee-left .bd ul li .pic{ text-align:center; }
@@ -294,12 +296,24 @@
     text-align: center;
     margin-top: 20px;
 }
-
+/*实力-定制---*/
 .chc-youshi-bg{
     width: 100%;
     height: 1229px;
     background: url(/static/images/bg/youshiBg.jpg) no-repeat center top;
 }
+.chc-youshi-bg .chc-shili{position: absolute}
+.chc-youshi-bg  .title{
+    font-size: 20px;font-weight: bold;
+}
+.chc-youshi-bg  .chc-shili-1{
+    margin-top: 10px;
+}
+.chc-shili-one{margin-top: 620px;position: absolute}
+.chc-youshi-bg  .chc-shili-2{
+    ;margin-left: 183px;
+}
+.chc-youshi-bg  ul li{line-height: 30px}
 .chc-ad-1{height: 200px;width: 100%}
 .chc-ad-1 img
 {height: 100%;width: 100%}
@@ -365,7 +379,7 @@
     text-overflow: ellipsis;
     overflow: hidden;}
 
-.chc-question{height: 100%;}
+.chc-question{height: 100%;overflow: hidden}
 .chc-question .infoList li{
     height: 70px;padding: 5px 0px 5px 0px;
     border-bottom: 1px dashed #e2e2e2;
