@@ -18,18 +18,24 @@
     {% block customcss %}
     {% endblock %}
     <style>
-        html body{
-            background-color: #f2f2f2;
-            color: #666;
-        }
-        .chc-header-top{
-            height: 60px;
-            padding: 5px;
-        }
+        html body{background-color: #f2f2f2;color: #666;}
+        .chc-header-top{height: 60px;padding: 5px;}
         .chc-header-top .chc-layui-logo img{width: 100%;height: 100%}
-        .chc-header-top .chc-header-deatil{line-height: 18px}
+        .chc-header-top .chc-header-deatil{line-height: 19px}
         .chc-header-top .chc-header-deatil .phone{color: #FF0036}
-
+        .layui-footer{left: 0!important;margin-top: 10px;height: 170px;background-color: #fff;box-shadow: 1px 1px 50px rgba(0,0,0,.3);border-radius: 2px}
+        .chc-footer{
+        position: fixed;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+        font-size: 19px;
+        background-color: #FF0036;
+        line-height: 50px;
+        color: #fff;
+        }
+        .chc-footer ul{list-style: none;width: 100%}
+        .chc-footer ul li{list-style: none;float: left;text-align: center;width: 25%}
     </style>
 </head>
 <body>
@@ -43,11 +49,6 @@
             <a href="tel:139-1063-0394" >全国免费服务热线：<b class="phone">139-1063-0394</b></a>
         </div>
     </div>
-
-
-
-
-
   
   <div class="chc-content">
     <!-- 内容主体区域 -->
@@ -55,19 +56,27 @@
      {% endblock %}
   </div>
   
-  <div class="layui-footer" style="left: 0!important;margin-top: 100px;height: 170px">
+  <div class="layui-footer" style="">
     <!-- 底部固定区域 -->
       <div class="layui-container">
           <div class="layui-col-md12 layui-col-xs12 layui-col-sm12">© 金洋九峰@版权所有</div>
           <div class="layui-col-md12 layui-col-xs12 layui-col-sm12">公司地址：北京市通州区马驹桥辛房路与景盛南二街纳特园区10号503室
 
-</div>
+        </div>
           <div class="layui-col-md12 layui-col-xs12 layui-col-sm12">采购热线：<139-1063-0394>总机：010-80213682 传真/FAX：010-80212896</div>
           <div class="layui-col-md12 layui-col-xs12 layui-col-sm12">站长统计 备案号：京ICP备xxxxxxxx号</div>
       </div>
-
   </div>
+
 </div>
+<div class="chc-footer">
+        <ul>
+            <li><a href="">金洋首页</a></li>
+            <li><a href="">产品中心</a></li>
+            <li><a href="">成功案例</a></li>
+            <li><a href="">联系我们</a></li>
+        </ul>
+    </div>
 <script src="/static/layui/layui.js" charset="utf-8"></script>
 {% block customjs %}
 {% endblock %}
