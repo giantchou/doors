@@ -1,3 +1,6 @@
+/*滑动图片*/
+#test10 img{width: 100%;height: 100%}
+
 /*热搜词部分*/
 .chc-hotword-and-search-bar{padding: 0px 5px 0px 5px;background-color: #333;height: 50px;line-height: 50px}
 .chc-hotword-and-search-bar a{color: #fff;}
@@ -211,7 +214,8 @@
     background: url(/static/images/bg/worryBg.jpg) no-repeat center;
     overflow: hidden;
     width: 100%;
-    height: 100vh;
+    /*height: 100vh;*/
+    height: 750px;
     position: relative;
 }
 .chc-worry .t-desc{
@@ -230,7 +234,8 @@
     background: url(/static/images/bg/getBg.jpg) no-repeat center;
     overflow: hidden;
     width: 100%;
-    height: 100vh;
+    /*height: 100vh;*/
+    height: 750px;
     position: relative;
     margin: 20px 0px 20px 0px;
 }
