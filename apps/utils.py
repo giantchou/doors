@@ -3,6 +3,7 @@
 # @time: 2018/11/22
 
 from flask import request
+from functools import wraps
 
 
 
@@ -13,6 +14,7 @@ def pc_and_m_transform(params):
     :return:
     '''
     def wrapper(func):
+        @wraps(func)
         def _logic():
             host = request.host
             _check = lambda x: x.startswith('192.168') or x.startswith("m.")

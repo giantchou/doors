@@ -104,5 +104,26 @@
 
 }
 .news-more{text-align: center;margin: 5px 0px 5px 0px;}
-.chc-tel{height: 100%;}
+.chc-tel{height: 100%;font-size: 17px;}
+.chc-tel i{font-size: 20px;}
 .number{color:#FF0036;font-weight: bold;font-size: 20px}
+.tianchong{height: 50px}
+/*产品详情页*/
+.chc-product-page{
+    height: 40px;
+}
+.chc-product-page .layui-col-xs12{height: 100%}
+.chc-product-page .c-page{
+    width: 200px;
+    height: 80%;
+    line-height: 31px;
+    left: 0;
+    text-align: center;
+    right: 0;
+    margin: 0 auto;
+}
+.chc-product-page .c-page a{height: 100%;float: left;border: 1px solid #FF0036}
+.chc-product-page .c-page .page-previous{width: 70px;height: 100%;background: #fff;}
+.chc-product-page .c-page .page-location{width: 40px;height: 100%;background: #FF0036;color: #fff}
+.chc-product-page .c-page .page-next{width: 70px;height: 100%;background: #fff;}
+

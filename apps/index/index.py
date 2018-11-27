@@ -12,3 +12,9 @@ index = Blueprint("index",__name__)
 def show(template):
     print("****",template)
     return render_template(template,)
+
+@index.route("/products/")
+@pc_and_m_transform({"m-template":"home/m-products.html","pc-template":"home/products.html"})
+def products(template):
+    print("****",template)
+    return render_template(template,)
