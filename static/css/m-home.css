@@ -33,8 +33,8 @@
     color: #fff!important;
 }
 .chc-product-photo{
-
-    margin: 5px 0px 5px 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .chc-product-photo .photo{
     background-color: #fff;
@@ -127,3 +127,13 @@
 .chc-product-page .c-page .page-location{width: 40px;height: 100%;background: #FF0036;color: #fff}
 .chc-product-page .c-page .page-next{width: 70px;height: 100%;background: #fff;}
 
+.chc-product-list{
+    height: 40px;
+    background-color: #999;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 5px;
+}
+.chc-product-list i{font-size: 25px;}
