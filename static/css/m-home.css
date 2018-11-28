@@ -78,8 +78,12 @@
     background:#FF0036;
     position: absolute;
     text-align: center;
-    margin-left: 40%;
+    margin-left: 35%;
     margin-top: 65px;
+}
+.chc-default-btn{
+    background: #ff0036!important;
+    color: #fff!important;
 }
 /*四大理由*/
 #test11{box-shadow: 1px 1px 50px rgba(0,0,0,.3);margin: 5px 0px 5px 0px}
@@ -137,3 +141,37 @@
     margin-top: 5px;
 }
 .chc-product-list i{font-size: 25px;}
+
+/*新闻列表*/
+.chc-news-list{
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 1px 1px 50px rgba(0,0,0,.3);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.card-head{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #edf2f9;
+    font-size: 1.5em;
+    padding-left: 6px;
+}
+.chc-news-list .news{position: relative;
+    height: 95px;
+    /*line-height: 22px;*/
+    padding: 5px;
+    border-bottom: 1px dotted #e2e2e2;}
+.chc-news-list .news h3{height: 20px;    color: #FF0036;
+    font-weight:bold;overflow: hidden;white-space: nowrap;text-overflow: ellipsis}
+.chc-news-list .news p{height: 40px;overflow: hidden;margin-top: 5px;margin-bottom: 5px;white-space: normal;text-overflow: ellipsis}
+.chc-news-list .news span{height: 20px;color: #95aac9}
+.chc-news-more-btn{text-align: center;margin-bottom: 5px}
+/*新闻详情页*/
+.news-detail-head{border-bottom: 1px solid #999}
+.chc-news-title{
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+}
+.chc-news-content{line-height: 30px;font-size: 17px;color: #333}

@@ -1,0 +1,43 @@
+{% extends 'home/m-base.html' %}
+{% block customcss %}
+
+{% endblock %}
+
+{% block content%}
+    <div class="layui-row">
+        <div class="layui-col-xs12">
+            <h1>电动伸缩门    宝马-371Y</h1>
+            <img src="/static/images/product/20160331102244_24954.jpg">
+            <p>电动伸缩门材质：铝合金型材</p>
+        </div>
+        <div class="layui-col-xs12">
+            <div class="layui-tab">
+              <ul class="layui-tab-title">
+                <li class="layui-this">网站设置</li>
+                <li>用户管理</li>
+              </ul>
+              <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <p>电动伸缩门宝马系列产品使用国际最先进的防碰结构设置，超灵敏感应；</p>
+                    <p>电动伸缩门宝马系列产品使用国际最先进的防碰结构设置，超灵敏感应；</p>
+                    <p>有很强的抗干扰能力，在暴雨、大雪、暴风沙等恶劣的天气下，同样准确无误地报警；，超灵敏感应；</p>
+                    <p>有直接与微型电脑组成防爬监控系统。</p>
+                </div>
+                <div class="layui-tab-item">内容2</div>
+              </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block customjs %}
+<script>
+//注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+layui.use('element', function(){
+  var element = layui.element;
+
+  //…
+});
+</script>
+{% endblock %}
