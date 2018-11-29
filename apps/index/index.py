@@ -66,3 +66,9 @@ def newsdetail(*args,**kwargs):
     nid = kwargs.get("nid")
     print("nid=",nid)
     return render_template(args[0])
+
+@index.route("/aboutus")
+@pc_and_m_transform({"m-template":"home/m-about-us.html","pc-template":"home/about-us.html"})
+def about_us(*args,**kwargs):
+    template = args[0]
+    return render_template(template)
