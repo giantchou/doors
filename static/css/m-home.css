@@ -113,6 +113,8 @@
 .number{color:#FF0036;font-weight: bold;font-size: 20px}
 .tianchong{height: 50px}
 /*产品详情页*/
+.chc-product-detail{background-color: #fff}
+.chc-product-detail .p-header{text-align: center}
 .chc-product-page{
     height: 40px;
 }
@@ -168,10 +170,27 @@
 .chc-news-list .news span{height: 20px;color: #95aac9}
 .chc-news-more-btn{text-align: center;margin-bottom: 5px}
 /*新闻详情页*/
-.news-detail-head{border-bottom: 1px solid #999}
+.news-detail-content{
+    background-color: #fff;
+    padding: 10px;
+}
+.news-detail-content .detail-about{
+    position: relative;
+    line-height: 20px;
+    padding: 15px 15px 15px 15px;
+    font-size: 13px;
+    background-color: #f8f8f8;
+    color: #999;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 20px;
+}
+.news-detail-content .detail-about span{float: left;margin-right: 10px}
+/*.news-detail-head{border-bottom: 1px solid #999}*/
 .chc-news-title{
     font-size: 24px;
     line-height: 36px;
     color: #333;
+    font-weight: bold;
 }
 .chc-news-content{line-height: 30px;font-size: 17px;color: #333}
