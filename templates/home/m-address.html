@@ -1,0 +1,187 @@
+{% extends 'home/m-base.html' %}
+{% block customcss %}
+
+{% endblock %}
+
+{% block content%}
+    <div class="layui-row chc-product-list">
+        <div class="layui-col-xs1">
+            <a href="javascript:;" onclick="javascript:history.back();"><i class="layui-icon layui-icon-return"></i></a>
+        </div>
+        <div class="layui-col-xs10">
+                联系地址
+        </div>
+        <div class="layui-col-xs1">
+            <i class="layui-icon layui-icon-shrink-right"></i>
+        </div>
+    </div>
+    <div class="layui-row chc-success-example layui-col-space10">
+        <div class="layui-col-xs12 example">
+            <p>地址：北京市通州区马驹桥辛房路与景盛南二街纳特园区10号503室</p>
+        </div>
+        <div class="layui-col-xs12 example">
+            <p>全国销售热线：139-1063-0394 </p>
+        </div>
+        <div class="layui-col-xs12 example">
+            <p>全国服务热线：400-8982-818</p>
+        </div>
+        <div class="layui-col-xs12 example">
+            <p>总机：010-80213682</p>
+        </div>
+        <div class="layui-col-xs12 example">
+            <p>传真：010-80213682</p>
+        </div>
+        <!--baidu map-->
+        <div class="layui-col-xs12 address">
+            <div style="width: 100%; height: 340px; border: 1px solid rgb(204, 204, 204); overflow: hidden; position: relative; z-index: 0; background-image: url(&quot;http://api.map.baidu.com/images/bg.png&quot;); color: rgb(0, 0, 0); text-align: left;" id="dituContent">
+                <div id="platform" style="overflow: visible; position: absolute; z-index: 0; left: 0px; top: 0px; cursor: url(&quot;http://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default;">
+                    <div id="mask" class=" BMap_mask" style="position: absolute; left: 0px; top: 0px; z-index: 9; overflow: hidden; user-select: none; width: 530px; height: 340px;"></div>
+                    <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;">
+                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 800;"></div>
+                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 700;">
+                            <span class="BMap_Marker BMap_noprint" unselectable="on" "="" style="position: absolute; padding: 0px; margin: 0px; border: 0px; cursor: pointer; background: url(&quot;http://api.map.baidu.com/images/blank.gif&quot;); width: 23px; height: 25px; left: 205px; top: 95px; z-index: -7947850;" title=""></span>
+                        </div>
+                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 600;"></div>
+                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 500;"></div>
+                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 400;">
+                            <span class="BMap_Marker" unselectable="on" style="position: absolute; padding: 0px; margin: 0px; border: 0px; width: 0px; height: 0px; left: 215px; top: 120px; z-index: -7947850;">
+                                <div style="position: absolute; margin: 0px; padding: 0px; width: 23px; height: 25px; left: -10px; top: -25px; overflow: hidden;">
+                                    <img src="http://api.map.baidu.com/images/marker_red.png" style="border:none;left:0px; top:0px; position:absolute;"></div>
+                            </span>
+                        </div>
+                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;">
+
+                        </div>
+                    </div>
+                    <div style="position: absolute; z-index: -1; left: 265px; top: 170px;">
+                        <img src="http://online2.map.bdimg.com/tile/?qt=tile&amp;x=6334&amp;y=2343&amp;z=15&amp;styles=pl&amp;udt=20140928" style="position: absolute; border: none; width: 256px; height: 256px; left: -385px; top: -46px;">
+                        <img src="http://online0.map.bdimg.com/tile/?qt=tile&amp;x=6336&amp;y=2344&amp;z=15&amp;styles=pl&amp;udt=20140928" style="position: absolute; border: none; width: 256px; height: 256px; left: 127px; top: -302px;">
+                        <img src="http://online4.map.bdimg.com/tile/?qt=tile&amp;x=6335&amp;y=2344&amp;z=15&amp;styles=pl&amp;udt=20140928" style="position: absolute; border: none; width: 256px; height: 256px; left: -129px; top: -302px;">
+                        <img src="http://online3.map.bdimg.com/tile/?qt=tile&amp;x=6334&amp;y=2344&amp;z=15&amp;styles=pl&amp;udt=20140928" style="position: absolute; border: none; width: 256px; height: 256px; left: -385px; top: -302px;">
+                        <img src="http://online3.map.bdimg.com/tile/?qt=tile&amp;x=6335&amp;y=2343&amp;z=15&amp;styles=pl&amp;udt=20140928" style="position: absolute; border: none; width: 256px; height: 256px; left: -129px; top: -46px;">
+                        <img src="http://online4.map.bdimg.com/tile/?qt=tile&amp;x=6336&amp;y=2343&amp;z=15&amp;styles=pl&amp;udt=20140928" style="position: absolute; border: none; width: 256px; height: 256px; left: 127px; top: -46px;">
+                    </div>
+                </div>
+                <div id="zoomer" style="position:absolute;z-index:0;top:0px;left:0px;overflow:hidden;visibility:hidden;cursor:url(http://api.map.baidu.com/images/openhand.cur) 8 8,default">
+                    <div class="BMap_zoomer" style="top:0;left:0;"></div>
+                    <div class="BMap_zoomer" style="top:0;right:0;"></div>
+                    <div class="BMap_zoomer" style="bottom:0;left:0;"></div>
+                    <div class="BMap_zoomer" style="bottom:0;right:0;"></div>
+                </div>
+
+                <div class=" anchorBL" style="height: 25px; position: absolute; z-index: 10; bottom: 0px; right: auto; top: auto; left: 1px;">
+                    <a title="到百度地图首页" target="_blank" href="#" style="outline: none;">
+                        <img style="border:none;width:68px;height:25px" src="http://api.map.baidu.com/images/copyright_logo_s.png">
+                    </a>
+                </div>
+                <div unselectable="on" class=" BMap_cpyCtrl anchorBL" style="cursor: default; white-space: nowrap; bottom: 2px; right: auto; top: auto; left: 81px; position: absolute; z-index: 10;">
+                    <span style="-webkit-text-size-adjust:none;color:#000;background:none;line-height:15px;font:11px arial,simsun" _cid="1">© 2015 Baidu</span>
+                </div>
+                <div unselectable="on" class=" BMap_stdMpCtrl BMap_stdMpType0 BMap_noprint anchorTL" style="width: 52px; height: 226px; bottom: auto; right: auto; top: 10px; left: 10px; position: absolute; z-index: 1100;">
+                    <div class="BMap_stdMpPan">
+                        <div class="BMap_button BMap_panN" title="向上平移"></div>
+                        <div class="BMap_button BMap_panW" title="向左平移"></div>
+                        <div class="BMap_button BMap_panE" title="向右平移"></div>
+                        <div class="BMap_button BMap_panS" title="向下平移"></div>
+                        <div class="BMap_stdMpPanBg BMap_smcbg"></div>
+                    </div>
+                    <div class="BMap_stdMpZoom" style="height: 167px; width: 52px;">
+                        <div style="height: 167px; width: 37px;">
+                            <div class="BMap_button BMap_stdMpZoomIn" title="放大一级">
+                                <div class="BMap_smcbg"></div>
+                            </div>
+                            <div class="BMap_button BMap_stdMpZoomOut" title="缩小一级">
+                                <div class="BMap_smcbg"></div>
+                            </div>
+                        </div>
+                        <div class="BMap_stdMpSlider" style="height: 133px;">
+                            <div class="BMap_stdMpSliderBgTop" style="height: 124px;">
+                                <div class="BMap_smcbg"></div>
+                            </div>
+                            <div class="BMap_stdMpSliderBgBot" style="top: 124px;">
+                                <div class="BMap_smcbg"></div>
+                            </div>
+                            <div class="BMap_stdMpSliderMask" title="放置到此级别"></div>
+                            <div class="BMap_stdMpSliderBar" title="拖动缩放" style="cursor: url(&quot;http://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default; top: 22px;">
+                                <div class="BMap_smcbg"></div>
+                            </div>
+                        </div>
+                        <div class="BMap_zlHolder">
+                            <div class="BMap_zlSt">
+                                <div class="BMap_smcbg"></div>
+                            </div>
+                            <div class="BMap_zlCity">
+                                <div class="BMap_smcbg"></div>
+                            </div>
+                            <div class="BMap_zlProv">
+                                <div class="BMap_smcbg"></div>
+                            </div>
+                            <div class="BMap_zlCountry">
+                                <div class="BMap_smcbg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div unselectable="on" class=" BMap_omCtrl BMap_noprint anchorBR quad4" style="width: 150px; height: 150px; bottom: 0px; right: 0px; top: auto; left: auto; position: absolute; z-index: 10;">
+                    <div class="BMap_omOutFrame" style="width: 149px; height: 149px;">
+                        <div class="BMap_omInnFrame" style="bottom: auto; right: auto; top: 8px; left: 8px; width: 139px; height: 139px;">
+                            <div class="BMap_omMapContainer" style="overflow: hidden; background-image: url(&quot;http://api.map.baidu.com/images/bg.png&quot;); color: rgb(0, 0, 0); text-align: left;">
+                                <div id="platform" style="overflow: visible; position: absolute; z-index: 0; left: 0px; top: 0px; cursor: url(&quot;http://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default;">
+                                    <div id="mask" class=" BMap_mask" style="position: absolute; left: 0px; top: 0px; z-index: 9; overflow: hidden; user-select: none; width: 139px; height: 139px;"></div>
+                                    <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;">
+                                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 800;"></div>
+                                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 700;">
+                                            <div class="BMap_Division" style="position: absolute; width: 33px; display: block; overflow: hidden; border-width: 1px; border-style: solid; border-color: rgb(173, 207, 244) rgb(39, 75, 139) rgb(39, 75, 139) rgb(132, 176, 223); border-image: initial; opacity: 1; z-index: 60; user-select: none; left: 52px; top: 58px; height: 21px;">
+                                                <div class="BMap_omViewInnFrame" style="width: 31px; height: 19px;">
+                                                    <div class="BMap_omViewMask"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 600;"></div>
+                                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 500;"></div>
+                                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 400;"></div>
+                                        <div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"></div>
+                                    </div>
+                                    <div style="position: absolute; z-index: -1; left: 69px; top: 70px;">
+                                        <img src="http://online2.map.bdimg.com/tile/?qt=tile&amp;x=396&amp;y=146&amp;z=11&amp;styles=pl&amp;udt=20140928" style="position: absolute; border: none; width: 256px; height: 256px; left: 8px; top: -131px;">
+                                        <img src="http://online1.map.bdimg.com/tile/?qt=tile&amp;x=395&amp;y=146&amp;z=11&amp;styles=pl&amp;udt=20140928" style="position: absolute; border: none; width: 256px; height: 256px; left: -248px; top: -131px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="BMap_omViewMv" style="cursor: url(&quot;http://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default; width: 33px; height: 21px; left: 52px; top: 58px;">
+                                <div class="BMap_omViewInnFrame" style="width: 31px; height: 19px;">
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="BMap_omBtn" style="bottom: 0px; right: 0px; top: auto; left: auto;"></div>
+                </div>
+                <div unselectable="on" class=" BMap_scaleCtrl BMap_noprint anchorBL" style="bottom: 18px; right: auto; top: auto; left: 81px; width: 88px; position: absolute; z-index: 10;">
+                    <div class="BMap_scaleTxt" unselectable="on">500&nbsp;米</div>
+                    <div class="BMap_scaleBar BMap_scaleHBar">
+                        <img style="border:none" src="http://api.map.baidu.com/images/mapctrls11.png">
+                    </div>
+                    <div class="BMap_scaleBar BMap_scaleLBar">
+                        <img style="border:none" src="http://api.map.baidu.com/images/mapctrls11.png">
+                    </div>
+                    <div class="BMap_scaleBar BMap_scaleRBar">
+                        <img style="border:none" src="http://api.map.baidu.com/images/mapctrls11.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block customjs %}
+<script>
+//注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+layui.use('element', function(){
+  var element = layui.element;
+
+  //…
+});
+</script>
+{% endblock %}

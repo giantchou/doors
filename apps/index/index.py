@@ -72,3 +72,34 @@ def newsdetail(*args,**kwargs):
 def about_us(*args,**kwargs):
     template = args[0]
     return render_template(template)
+
+@index.route("/honour")
+@pc_and_m_transform({"m-template":"home/m-honour.html","pc-template":"home/honour.html"})
+def honour(*args,**kwargs):
+    template = args[0]
+    return render_template(template)
+
+
+@index.route("/sexample")
+@pc_and_m_transform({"m-template":"home/m-success-example.html","pc-template":"home/success-example.html"})
+def sexample(*args,**kwargs):
+    '''
+     成功案例
+    :param args:
+    :param kwargs:
+    :return:
+    '''
+    template = args[0]
+    return render_template(template)
+
+@index.route("/address")
+@pc_and_m_transform({"m-template":"home/m-address.html","pc-template":"home/address.html"})
+def address(*args,**kwargs):
+    '''
+     成功案例
+    :param args:
+    :param kwargs:
+    :return:
+    '''
+    template = args[0]
+    return render_template(template)
