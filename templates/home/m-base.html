@@ -101,6 +101,7 @@
             <li><a href="/address">联系我们</a></li>
         </ul>
     </div>
+<!--留言div-->
 <div  class="layui-row zaixian_liuyan" id="zaixian_liuyan">
     <div class="layui-col-xs12 head">
         <div class="layui-row liuyan">
@@ -127,9 +128,30 @@
         </div>
     </div>
 </div>
+
+<!--分类div-右侧滑出-->
+<div class="chc-cate" id="chc-cate" style="display: block">
+    <div class="layui-row cate-container">
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+        </div>
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+        </div>
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+        </div>
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+        </div>
+    </div>
+</div>
+
 <script src="/static/layui/layui.js" charset="utf-8"></script>
 <script>
-
+layui.use('jquery', function(){
+   $ = layui.jquery;
+});
     // 点击按钮，返回顶部
 function topFunction() {
     document.body.scrollTop = 0;
@@ -143,6 +165,17 @@ function closeDiv() {
     var liuyan=document.getElementById("zaixian_liuyan");
     liuyan.style.display="none";
 }
+function zhedie() {
+  $("#chc-cate").animate({right:"0%"});
+}
+document.addEventListener("click", function(e){
+     // 判断被点击的元素是不是scheduleInput元素，不是的话，就隐藏之
+    var cateleft = document.getElementById("zhedieid");
+    console.log(e.target);
+     if( e.target !== cateleft ){
+           $("#chc-cate").animate({right:"-59%"});
+     }
+});
 </script>
 {% block customjs %}
 {% endblock %}

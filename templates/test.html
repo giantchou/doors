@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+    <link href="//layui.hcwl520.com.cn/layui/css/layui.css?v=201809030202" rel="stylesheet" media="all">
+    <script src="//layui.hcwl520.com.cn/layui/layui.js?v=201809030202"></script>
+    <style>
+        html,body{height: 100%}
+        .chc-cate{    height: 100%;
+    width: 60%;
+    top: 10%;
+    position: fixed;
+    bottom: 0;
+    right: -59%;
+    background-color: #393D49;
+    float: right;
+    opacity: 0.7;}
+        .chc-cate .layui-row{width: 100%;}
+        .chc-cate .layui-row .layui-col-xs12{width: 100%;height: 35px;line-height: 35px;padding-left: 5px;}
+        .chc-cate .layui-row .layui-col-xs12 a{font-size: 18px;}
+        .chc-cate .layui-row .layui-col-xs12 a span{    margin-bottom: 2px;}
+    </style>
+</head>
+
+<body>
+
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-col-xs10">&nbsp;</div>
+        <div class="layui-col-xs2 " id="zhedie" onclick="zhedie();">折叠</div>
+    </div>
+
+</div>
+<div class="chc-cate" id="chc-cate" style="display: block">
+    <div class="layui-row cate-container">
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+        </div>
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+        </div>
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+        </div>
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+        </div>
+    </div>
+</div>
+
+<script>
+  layui.use('jquery', function(){
+       $ = layui.jquery;
+  });
+  function zhedie() {
+      $("#chc-cate").animate({right:"0%"});
+      console.log(">>>>")
+  }
+  document.onclick = function(){
+      alert("aaa")
+  }
+</script>
+</body>
+</html>
