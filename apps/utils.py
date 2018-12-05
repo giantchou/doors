@@ -16,12 +16,13 @@ def pc_and_m_transform(params):
     def wrapper(func):
         @wraps(func)
         def _logic(*args,**kwargs):
-            print("*"*20,args,kwargs)
             host = request.host
             _check = lambda x: x.startswith('192.168') or x.startswith("m.")
             if _check(host):
-                return func((params.get('m-template'),)+args,kwargs)
+                args = args.__add__((params.get('m-template'),))
+                return func(*args,**kwargs)
             else:
-                return func((params.get('pc-template'),)+args,kwargs)
+                args = args.__add__((params.get('pc-template'),))
+                return func(*args,**kwargs)
         return _logic
     return wrapper
