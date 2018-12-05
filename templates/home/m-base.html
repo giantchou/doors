@@ -133,50 +133,42 @@
 <div class="chc-cate" id="chc-cate" style="display: block">
     <div class="layui-row cate-container">
         <div class="layui-col-xs12">
-            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;工业门系列</a>
         </div>
         <div class="layui-col-xs12">
-            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;电动伸缩门</a>
         </div>
         <div class="layui-col-xs12">
-            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;别墅庭院大门</a>
         </div>
         <div class="layui-col-xs12">
-            <a href="/"><span class="layui-badge-dot"></span>&nbsp;分类1</a>
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;旋转门</a>
+        </div>
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;停车管理配套产品</a>
+        </div>
+
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;围栏</a>
+        </div>
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;路障</a>
+        </div>
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;自动感应门</a>
+        </div>
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;悬浮门</a>
+        </div>
+        <div class="layui-col-xs12">
+            <a href="/"><span class="layui-badge-dot"></span>&nbsp;电动刷卡门</a>
         </div>
     </div>
 </div>
 
 <script src="/static/layui/layui.js" charset="utf-8"></script>
-<script>
-layui.use('jquery', function(){
-   $ = layui.jquery;
-});
-    // 点击按钮，返回顶部
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
-function zaixianliuyan() {
-    var liuyan=document.getElementById("zaixian_liuyan");
-    liuyan.style.display="block";
-}
-function closeDiv() {
-    var liuyan=document.getElementById("zaixian_liuyan");
-    liuyan.style.display="none";
-}
-function zhedie() {
-  $("#chc-cate").animate({right:"0%"});
-}
-document.addEventListener("click", function(e){
-     // 判断被点击的元素是不是scheduleInput元素，不是的话，就隐藏之
-    var cateleft = document.getElementById("zhedieid");
-    console.log(e.target);
-     if( e.target !== cateleft ){
-           $("#chc-cate").animate({right:"-59%"});
-     }
-});
-</script>
+<script src="/static/js/init.js" charset="utf-8"></script>
+
 {% block customjs %}
 {% endblock %}
 
