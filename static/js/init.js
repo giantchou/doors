@@ -16,6 +16,8 @@ function closeDiv() {
 }
 function zhedie() {
   $("#chc-cate").animate({right:"0%"});
+  $(".layui-fluid").css("background-color","#000000").css("opacity","0.2");
+  $(".chc-cate").css("opacity","1.0");
 }
 document.addEventListener("click", function(e){
      // 判断被点击的元素是不是scheduleInput元素，不是的话，就隐藏之
