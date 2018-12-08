@@ -4,10 +4,186 @@
 
 
 {% block content %}
+    <div class="layui-fluid chc-product-center">
+        <div class="layui-row">
+            <img src="/static/images/product/product001.jpg">
+        </div>
+    </div>
+    <div class="layui-container chc-product-panel">
+        <div class="layui-row">
+            <div class="layui-col-md12">
+                <span class="layui-breadcrumb">
+                  <a href="">首页</a>
+                  <a><cite>产品中心</cite></a>
+                </span>
+                <div class="chc-product-banner">
+                    <p>1元秒杀</p>
+                </div>
+            </div>
+            <div class="layui-col-md12 chc-product-center-cate">
+                <div class="cate">
+                    <ul>
+                        <li class="main">分类：</li>
+                        <li class="item">全部</li>
+                        <li class="item">伸缩门</li>
+                        <li class="item">电动门</li>
+                    </ul>
+                </div>
+                <div class="cate">
+                    <ul>
+                        <li class="main">材质：</li>
+                        <li class="item">全部</li>
+                        <li class="item">不锈钢</li>
+                        <li class="item">木质</li>
+                    </ul>
+                </div>
+                <div class="cate three">
+                    <ul>
+                        <li class="main">分类：</li>
+                        <li class="item">全部</li>
+                        <li class="item">伸缩门</li>
+                        <li class="item">电动门</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-row chc-doors-list layui-col-space10">
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door0010.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door1013.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door0012.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door1013.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door0010.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door1013.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door0012.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door1013.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door0010.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door1013.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door0012.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="layui-col-md3">
+                    <a href="/">
+                        <div class="door-img">
+                            <img src="/static/images/product/door1013.jpg">
+                            <p class="title">全网最热销门</p>
+                            <span>1000人浏览</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="chc-product-page">
+                <div id="demo1"></div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 
 {% block customjs %}
+<script>
+    layui.use(['element','laypage'], function(){
+      var element = layui.element
+          ,laypage = layui.laypage; //导航的hover效果、二级菜单等功能，需要依赖element模块
+ //总页数大于页码总数
+  laypage.render({
+    elem: 'demo1'
+    ,count: 70 //数据总数
+    ,jump: function(obj){
+      console.log(obj)
+    }
+  });
+      //监听导航点击
+      element.on('nav(demo)', function(elem){
+        //console.log(elem)
+        layer.msg(elem.text());
+      });
+    });
+</script>
 {% endblock %}
 
 

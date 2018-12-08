@@ -1,3 +1,75 @@
+            html body{
+            background-color: #f2f2f2;
+            color: #666;
+        }
+        .chc-header-daohang a{
+            border-right: 1px solid #333;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+        .chc-header-top{height: 30px;
+            top: 0px;
+            overflow: hidden;
+            border-bottom: 1px solid #dddddd;
+            line-height:30px;font-size: 12px;
+            color: #303030!important;}
+        .layui-breadcrumb a{color: #303030!important;}
+        .layui-breadcrumb a:hover{color: #eeeeee!important;}
+        .layui-fluid{bottom: 40px;}
+        .chc-header{height: 120px}
+        .chc-header  h2{font-size: 20px;
+            color: #ed1b23;    font-weight: bold;}
+        .chc-header dd p {
+            font-size: 16px;
+            color: #303030;
+        }
+        .chc-layui-logo{line-height: 120px;}
+        .chc-header-deatil{
+            margin-top: 45px;
+            line-height: 30px;
+        }
+        .phone {
+            overflow: hidden;
+            background: url(/static/images/phone.png) no-repeat right center;
+            float: right;
+            margin-top: 25px;
+            text-align: right;
+            padding-right: 50px;
+        }
+        .phone h3 {
+            font-size: 24px;
+            color: #ed1b23;
+            font-weight: normal;
+        }
+        .header_nav {
+            overflow: hidden;
+            width: 100%;
+            height: 55px;
+            background-color: #d80007;
+        }
+        .header_nav li {
+            float: left;
+            font-size: 14px;
+            line-height: 55px;
+            background: url(/static/images/navBor.png) repeat-y right top;
+            white-space: nowrap;
+        }
+        .header_nav li.cur a, .header_nav li:hover a {
+            color: #333;
+        }
+
+        .header_nav li a {
+            color: #fff;
+            display: block;
+            text-decoration: none;
+            padding: 0 26px;
+        }
+        .header_nav li.cur, .header_nav li:hover {
+            background: #f1f1f1;
+        }
+        .chc-content{margin-bottom: 100px}
+
+
 /*滑动图片*/
 #test10 img{width: 100%;height: 100%}
 
@@ -330,8 +402,6 @@
 /*客户见证*/
 .chc-customer{margin: 20px 0px 20px 0px }
 
-
-
 /*动态*/
 .chc-behaviour{
        height: 80px;
@@ -415,10 +485,83 @@
 .chc-url-link{margin: 40px 0px 20px 0px}
 .chc-link{font-size: 20px;font-weight: bold}
 .chc-link-friends{list-style: none}
-.chc-link-friends li{list-style: none;
-    float: left;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-right: 1px solid #e2e2e2;
-    margin-bottom: 10px;
+.chc-link-friends li{list-style: none;float: left;padding-left: 10px;padding-right: 10px;border-right: 1px solid #e2e2e2;margin-bottom: 10px;}
+/*关于我们-page*/
+.chc-pc-about{bottom: 0px!important;height: 350px;margin-bottom: 20px;}
+.chc-pc-about img{width: 100%;height: 100%}
+.chc-pc-about .layui-row {height: 100%}
+.chc-pc-about .layui-row .layui-col-md12{height: 100%}
+    /*----left item*/
+.chc-pc-about-left-item{height: 70px;background-color:#d80007 ;padding-left: 10px;line-height: 70px;    }
+.chc-pc-about-left-item .title{color: #fff;font-size: 20px;font-weight: bold}
+.company-item{height: 150px;background-color: #fff}
+.company-item ul {list-style: none}
+.company-item ul li{height: 50px;color: #333;
+    font-size: 18px;line-height: 50px;padding-left: 15px;}
+.company-item ul .this{background-color: #333;color: #fff}
+.company-item ul li:hover{background-color: #333;color: #fff}
+.company-item ul .layui-icon-right{float: right;margin-right: 20px;}
+.company-tel{height: 100px;background-color: #333}
+.company-tel .icon{    float: left;
+    background: url(/static/images/phImg.png) no-repeat center;
+    margin-left: 5px;
+    width: 62px;
+    height: 50px; margin-top: 25px;}
+.company-tel .about-phone{
+float: right;
+    margin-top: 25px;
+    margin-right: 44px;
+    color: #fff;
 }
+.company-tel  .xuxian{
+        height: 80px;
+    float: left;
+    margin-top: 10px;
+        border-right: 1px dashed;
+}
+.company-tel .about-phone p{font-size: 20px;font-weight: bold}
+
+.chc-about-news{height: 210px;margin-top: 20px;margin-bottom: 20px;}
+.chc-one-title{height: 40px;font-size: 18px;padding-left:10px;color:#fff;background-color: #d80007;line-height: 40px;}
+.chc-about-news .news-list{
+    height: 160px;background-color: #fff;padding: 10px;
+}
+.chc-about-news .news-list ul{list-style: none;}
+.chc-about-news .news-list ul li{height: 20px;white-space: normal;overflow: hidden;text-overflow: ellipsis;margin: 3px 0px 3px 0px}
+.chc-about-news .news-list ul li a{color: #999}
+.chc-about-address .address{background-color: #fff;text-align: center}
+
+.chc-about-address .info {background-color: #fff}
+.chc-about-address .info ul li{line-height: 20px;padding-left: 8px;}
+    /*--right*/
+.chc-about-desc{background-color: #fff}
+
+.chc-about-desc .title{border-bottom: 1px solid #f2f2f2;margin-bottom:30px;line-height: 30px;}
+.chc-about-desc .title .jinajie{font-size: 18px;border-left: 3px solid #d80007}
+.chc-about-content .header-img{text-align: center}
+.chc-about-content p{line-height: 25px;font-size: 17px;text-indent: 25px;color: #666}
+.chc-about-content{padding: 10px;}
+
+/*产品中心*/
+.chc-product-center{bottom: 0px!important;height: 350px;margin-bottom: 20px;}
+.chc-product-center .layui-row{height: 100%;}
+.chc-product-center img{height: 100%;width: 100%}
+.chc-product-panel{background-color: #fff;padding: 10px;}
+.chc-product-panel .chc-product-banner {height: 150px;background-color: #d80007;border-radius: 10px;margin: 10px 0px 10px 0px;    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;line-height: 150px;}
+.chc-product-center-cate .cate{    font-size: 14px;;line-height: 30px;display: inline-block;width: 100%;border-bottom: 1px solid #F0F0F0}
+.chc-product-center-cate{border: 1px solid #F0F0F0;padding: 5px;}
+.chc-product-center-cate .three{border: none!important;}
+.chc-product-center-cate .cate ul{list-style: none}
+.chc-product-center-cate .cate ul .main{float: left}
+.chc-product-center-cate .cate ul .item{float: left;margin-left: 20px;}
+.chc-doors-list .layui-col-md3{}
+.chc-doors-list .door-img{height: 300px;padding: 5px;background-color: #f9f9f9}
+.chc-doors-list .door-img img{
+    width: 100%;height: 260px;
+}
+.chc-doors-list .door-img span{color: #d80007;font-size: 9px;line-height: 30px;}
+.chc-doors-list .door-img .title{;height: 20px;line-height: 25px;font-size: 17px;font-weight: bold;color: #333}
+.chc-product-page{text-align: center}
