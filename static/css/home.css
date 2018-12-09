@@ -1,74 +1,75 @@
-            html body{
-            background-color: #f2f2f2;
-            color: #666;
-        }
-        .chc-header-daohang a{
-            border-right: 1px solid #333;
-            padding-right: 10px;
-            padding-left: 10px;
-        }
-        .chc-header-top{height: 30px;
-            top: 0px;
-            overflow: hidden;
-            border-bottom: 1px solid #dddddd;
-            line-height:30px;font-size: 12px;
-            color: #303030!important;}
-        .layui-breadcrumb a{color: #303030!important;}
-        .layui-breadcrumb a:hover{color: #eeeeee!important;}
-        .layui-fluid{bottom: 40px;}
-        .chc-header{height: 120px}
-        .chc-header  h2{font-size: 20px;
-            color: #ed1b23;    font-weight: bold;}
-        .chc-header dd p {
-            font-size: 16px;
-            color: #303030;
-        }
-        .chc-layui-logo{line-height: 120px;}
-        .chc-header-deatil{
-            margin-top: 45px;
-            line-height: 30px;
-        }
-        .phone {
-            overflow: hidden;
-            background: url(/static/images/phone.png) no-repeat right center;
-            float: right;
-            margin-top: 25px;
-            text-align: right;
-            padding-right: 50px;
-        }
-        .phone h3 {
-            font-size: 24px;
-            color: #ed1b23;
-            font-weight: normal;
-        }
-        .header_nav {
-            overflow: hidden;
-            width: 100%;
-            height: 55px;
-            background-color: #d80007;
-        }
-        .header_nav li {
-            float: left;
-            font-size: 14px;
-            line-height: 55px;
-            background: url(/static/images/navBor.png) repeat-y right top;
-            white-space: nowrap;
-        }
-        .header_nav li.cur a, .header_nav li:hover a {
-            color: #333;
-        }
+html body{
+background-color: #f2f2f2;
+color: #666;
+}
+.chc-header-daohang a{
+border-right: 1px solid #333;
+padding-right: 10px;
+padding-left: 10px;
+}
+.chc-header-top{height: 30px;
+top: 0px;
+overflow: hidden;
+border-bottom: 1px solid #dddddd;
+line-height:30px;font-size: 12px;
+color: #303030!important;}
+.layui-breadcrumb a{color: #303030!important;}
+.layui-breadcrumb a:hover{color: #eeeeee!important;}
+.layui-fluid{bottom: 40px;}
+.chc-header{height: 120px}
+.chc-header  h2{font-size: 20px;
+color: #ed1b23;    font-weight: bold;}
+.chc-header dd p {
+font-size: 16px;
+color: #303030;
+}
+.chc-layui-logo{line-height: 120px;}
+.chc-header-deatil{
+margin-top: 45px;
+line-height: 30px;
+}
+.phone {
+overflow: hidden;
+background: url(/static/images/phone.png) no-repeat right center;
+float: right;
+margin-top: 25px;
+text-align: right;
+padding-right: 50px;
+}
+.phone h3 {
+font-size: 24px;
+color: #ed1b23;
+font-weight: normal;
+}
+.header_nav {
+overflow: hidden;
+width: 100%;
+height: 55px;
+background-color: #d80007;
+}
+.header_nav li {
+float: left;
+font-size: 14px;
+line-height: 55px;
+background: url(/static/images/navBor.png) repeat-y right top;
+white-space: nowrap;
+}
+.header_nav li.cur a, .header_nav li:hover a {
+color: #333;
+}
 
-        .header_nav li a {
-            color: #fff;
-            display: block;
-            text-decoration: none;
-            padding: 0 26px;
-        }
-        .header_nav li.cur, .header_nav li:hover {
-            background: #f1f1f1;
-        }
-        .chc-content{margin-bottom: 100px}
-
+.header_nav li a {
+color: #fff;
+display: block;
+text-decoration: none;
+padding: 0 26px;
+}
+.header_nav li.cur, .header_nav li:hover {
+background: #f1f1f1;
+}
+.chc-content{margin-bottom: 100px}
+.home-wxcode{height: 150px;width: 150px;}
+.home-wxcode img{height:100%;width: 100%;}
 
 /*滑动图片*/
 #test10 img{width: 100%;height: 100%}
@@ -493,7 +494,7 @@
 .chc-pc-about .layui-row .layui-col-md12{height: 100%}
     /*----left item*/
 .chc-pc-about-left-item{height: 70px;background-color:#d80007 ;padding-left: 10px;line-height: 70px;    }
-.chc-pc-about-left-item .title{color: #fff;font-size: 20px;font-weight: bold}
+.chc-two-title{color: #fff;font-size: 20px;font-weight: bold}
 .company-item{height: 150px;background-color: #fff}
 .company-item ul {list-style: none}
 .company-item ul li{height: 50px;color: #333;
@@ -542,7 +543,7 @@ float: right;
 .chc-about-content p{line-height: 25px;font-size: 17px;text-indent: 25px;color: #666}
 .chc-about-content{padding: 10px;}
 
-/*产品中心*/
+/*产品中心-列表*/
 .chc-product-center{bottom: 0px!important;height: 350px;margin-bottom: 20px;}
 .chc-product-center .layui-row{height: 100%;}
 .chc-product-center img{height: 100%;width: 100%}
@@ -565,3 +566,36 @@ float: right;
 .chc-doors-list .door-img span{color: #d80007;font-size: 9px;line-height: 30px;}
 .chc-doors-list .door-img .title{;height: 20px;line-height: 25px;font-size: 17px;font-weight: bold;color: #333}
 .chc-product-page{text-align: center}
+/*产品详情页*/
+.chc-desc{overflow: hidden;background-color: #fff;padding: 10px;margin-top: 5px;}
+.chc-product-cate-item{background-color: #fff;padding: 5px;}
+.chc-product-cate-item .item-title{font-weight: bold}
+.chc-product-cate-item .item-title i{padding-right: 10px;}
+.chc-product-cate-item .item{list-style: none}
+.chc-product-cate-item .item li{height: 40px;line-height: 40px;padding-left: 26px;}
+.chc-product-cate-item .item li:hover{background-color: #333;color: #fff}
+.chc-product-cate-item .item li i{color: #fff;float: right;margin-right: 20px;}
+.chc-fengmian-detail div{margin-bottom: 30px;}
+.chc-fengmian-detail .layui-col-md6{height: 400px;padding: 20px;}
+.chc-fengmian-detail .layui-col-md6 .img{height: 100%;}
+.chc-fengmian-detail .layui-col-md6 img{height: 100%;width: 100%}
+.p-title{overflow: hidden}
+.zixun-panel {background-color: #f3f3f3;height: 90px;padding: 10px;line-height: 90px;}
+.c-text-red{color: #d80007;font-size: 20px;}
+.chc-detail-content{
+    margin: 20px 0 0;
+    min-height: 306px;
+    line-height: 26px;
+    font-size: 16px;
+    color: #333;
+    word-wrap: break-word;text-indent: 25px;}
+.leftboder{border-left: 3px solid #d80007}
+/*左侧悬浮*/
+.float-left{position: fixed;top: 30%;left: 0;background-color: #fff;color: #999;width: 120px;text-align: center;}
+.float-left .nav{height: 40px;line-height: 40px;font-size: 18px;color:#d80007 }
+.float-left .btn-group button{margin-bottom: 10px;width: 97px;background-color:#d80007;color: #fff }
+.float-left .wxcode{height: 100px;width: 90%;margin: 0 auto;}
+.float-left .wxcode img{width: 100%;height: 100%}
+.float-left  .tel{height: 50px;}
+.float-left  .tel p{height: 20px;color: #d80007;}
+.float-left  .tel p:nth-child(2){color:#d80007;font-size: 15px;font-weight: bold }
