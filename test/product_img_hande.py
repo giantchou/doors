@@ -7,7 +7,7 @@
 # @Software: PyCharm
 
 import re
-import pymysql
+from pyquery import  PyQuery
 import upyun
 import time
 import requests
@@ -16,6 +16,8 @@ from aip import AipOcr
 import base64
 import hashlib
 import json
+import MySQLdb
+import HTMLParser
 
 UPYUN_BUCKETNAME = 'doors'
 UPYUN_USERNAME = 'doors360'
@@ -50,13 +52,13 @@ def check_baidu(imgdata):
     client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
     Result = client.basicAccurate(imgdata)
     for res in reversed(Result['words_result']):
-        if '实力雄厚' in res['words'] or '品质保证' in res['words']:
+        if u'实力雄厚' in res['words'] or u'品质保证' in res['words']:
             return 1
-        if '量身定制' in res['words'] or '售后无忧' in res['words']:
+        if u'量身定制' in res['words'] or u'售后无忧' in res['words']:
             return 2
     return 0
 
-def Transfer(liyou,_url):
+def Transfer(liyou, _url):
     response = requests.get(_url)
     _imgdata = response.content
     x = check_baidu(_imgdata)
@@ -64,50 +66,62 @@ def Transfer(liyou,_url):
         extname="." + _url.split(".")[-1].split("?")[0]
         if "/" in extname:
             extname = ".jpg"
-        print(u'不是4大理由!!!')
-        #new_name = upload_img(_imgdata, extname)
-        #return new_name
+        new_name = upload_img(_imgdata, extname)
+        return new_name
     else:
-        print(liyou[x])
+        return liyou[x]
 
-### 使用腾讯云图片识别关键词 ###
-""" 
-def check_tencent(stopword_list, imgdata):
-    appid = '1253358209'
-    secret_id = 'AKIDLXddS5gu5HSSGv6hnsodHo9IG3jEEjme'
-    secret_key = 'qX7Xp031pSuGaptlT1QjsvnZH7UmsrfH'
-    bucket = 'BUCKET'
-    current = time.time()
-    expired = current + 2592000
+def filter_tags(htmlstr):
+    s = re.sub("<[^<>]+>", '', htmlstr)
+    return s
 
-    rdm = ''.join(random.choice("0123456789") for i in range(10))
-    info = "a=" + appid + "&b=" + bucket + "&k=" + secret_id + "&e=" + str(expired) + "&t=" + str(current) + "&r=" + str(rdm) + "&u=0&f="
-    signindex = hmac.new(secret_key, info, hashlib.sha1).digest()
-    sign = base64.b64encode(signindex + info)
-    url = "http://recognition.image.myqcloud.com/ocr/general"
-    headers = {'Host': 'recognition.image.myqcloud.com',
-               "Authorization": sign,
-               }
-    files = {'appid': (None, appid),
-             'bucket': (None, bucket),
-             'image': ('1.jpg', imgdata, 'image/jpeg')
-             }
+def replace_charentity(htmlstr):
+    htmlstr = htmlstr.replace("&quot;", '"')
+    htmlstr = htmlstr.replace("&amp;", '&')
+    htmlstr = htmlstr.replace("&lt;", '<')
+    htmlstr = htmlstr.replace("&gt;", '>')
+    htmlstr = htmlstr.replace("&nbsp;", ' ')
+    return htmlstr
 
-    Result = requests.post(url, files=files, headers=headers)
-    result = json.loads(Result.content)
-
-    for Res in reversed(result['data']['items']):
-        print ''.join([res['character'] for res in Res['words']])
-        for sw in stopword_list:
-            if sw in ''.join([res['character'] for res in Res['words']]):
-                return True
-    return False
-"""
+def get_simple_content(self):
+    a = filter_tags(self)
+    b = replace_charentity(a)
+    _ = HTMLParser.HTMLParser()
+    return _.unescape(b.strip())
 
 def main():
-    liyou = random.choice(Liyou)
-    url = 'http://www.jyjf.com.cn/UploadFiles/Product/2016-05-18/20160518165306898.jpg'
-    Transfer(liyou, url)
+    Mysql_conf = {
+        'host': '172.16.13.165',
+        'user': 'mha_user',
+        'passwd': 'gc895316',
+        'db': 'doors',
+        'charset': 'utf8',
+        'init_command': 'set autocommit=0'
+    }
+
+    My_cxn = MySQLdb.connect(**Mysql_conf)
+    My_cur = My_cxn.cursor()
+
+    My_cur.execute('SELECT title,content,pid FROM product where  hot = 0 limit 3')
+    result = My_cur.fetchall()
+    for res in result:
+        liyou = random.choice(Liyou)
+        kw = res[0].split()[0].split('-')[0] + u',伸缩门,电动门,电动伸缩门,伸缩门厂家,电动伸缩门厂家,河南电动伸缩门厂家'
+        doc = PyQuery("<div>" + res[1] + "</div>")
+        for j in doc("img"):
+            src=PyQuery(j).attr("src")
+            if 'jyjf.com.cn' not in src:
+                src = 'http://www.jyjf.com.cn'+src
+            #img_newurl = Transfer(liyou, src)
+            #j.set("src", new_name)
+        #print doc
+        doc("script").remove()
+        #doc("a").remove()
+        #simple_content = get_simple_content(doc)
+        content = doc.html()
+        #My_cur.execute('UPDATE product SET keyword="%s",content="%s",hot=1 WHERE pid=%s'%(kw,content,res[-1]))
+        #
+        print content, '\r\n', res[1], '\r\n\r\n'
 
 if __name__ == '__main__':
     main()
