@@ -145,7 +145,10 @@ def list_handle(my_conn, my_cur, item):
         item['title'] = _url.get_attribute('title')
         kw = item['title'].split('-')[0].split()[0]
         item = get_cate(kw, my_cur)
-        item['kw'] = kw + u',伸缩门,电动伸缩门,伸缩门厂家,电动伸缩门厂家,河南电动伸缩门厂家'
+        if kw in u'伸缩门,电动伸缩门,伸缩门厂家,电动伸缩门厂家,河南电动伸缩门厂家':
+            item['kw'] = u'伸缩门,电动门,电动伸缩门,伸缩门厂家,电动伸缩门厂家,河南电动伸缩门厂家'
+        else:
+            item['kw'] = kw + u',伸缩门,电动伸缩门,伸缩门厂家,电动伸缩门厂家,河南电动伸缩门厂家'
         if check_repeat(my_cur, _url.get_attribute('href')):
             print u'已采集,跳过~~~~'
             continue
