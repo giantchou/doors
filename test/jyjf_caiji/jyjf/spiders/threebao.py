@@ -45,7 +45,7 @@ def Transfer(_url):
 class tbSpider(scrapy.Spider):
     name = "tbSpider"
     allowed_domains = ["jyjf.com.cn"]
-    start_urls = ["http://www.jyjf.com.cn/Product/"]
+    start_urls = ['http://www.jyjf.com.cn/Product/']
     global Mysql_conf, My_cxn, My_cur
     Mysql_conf = {
         'host': '47.92.116.232',
@@ -60,16 +60,32 @@ class tbSpider(scrapy.Spider):
     My_cur = My_cxn.cursor()
 
     def parse(self, response):
+        a = [{'url': u'www.jyjf.com.cn/xfzdm.htm', 'cate2': 16L, 'cate1': 1L},
+             {'url': u'www.jyjf.com.cn/wgxfm.htm', 'cate2': 17L, 'cate1': 1L},
+             {'url': u'www.jyjf.com.cn/sspym.htm', 'cate2': 18L, 'cate1': 1L},
+             {'url': u'www.jyjf.com.cn/lhjddssm.htm', 'cate2': 19L, 'cate1': 2L},
+             {'url': u'www.jyjf.com.cn/bxgddssm.htm', 'cate2': 20L, 'cate1': 2L},
+             {'url': u'www.jyjf.com.cn/tytydm.htm', 'cate2': 21L, 'cate1': 3L},
+             {'url': u'www.jyjf.com.cn/lybsdm.htm', 'cate2': 22L, 'cate1': 3L},
+             {'url': u'www.jyjf.com.cn/bxgtydm.htm', 'cate2': 23L, 'cate1': 3L},
+             {'url': u'www.jyjf.com.cn/zndz.htm', 'cate2': 29L, 'cate1': 5L},
+             {'url': u'www.jyjf.com.cn/rxtdz.htm', 'cate2': 30L, 'cate1': 5L},
+             {'url': u'www.jyjf.com.cn/cpzdsbtcgl.htm', 'cate2': 31L, 'cate1': 5L},
+             {'url': u'www.jyjf.com.cn/scstccglxt.htm', 'cate2': 32L, 'cate1': 5L},
+             {'url': u'www.jyjf.com.cn/lywl.htm', 'cate2': 33L, 'cate1': 6L}]
+
         urls = response.xpath('//div[@class="sedNav"]/p/a')
         for _url in urls:
             item = self.get_cate(_url.xpath('text()').extract()[0], My_cxn, My_cur)
             url = _url.xpath('@href').extract()[0]
-            print url
-            if 'jyjf.com.cn' not in url:
+            if 'jyjf.com' not in url:
                 url = 'www.jyjf.com.cn' + url
-            yield scrapy.Request(url, callback=self.page_list, dont_filter=True, meta={'item': item})
+            item['url'] = url
+            print item['url'], item
+            yield scrapy.Request(item['url'], callback=self.page_list, dont_filter=True, meta={'item': item})
 
     def page_list(self, response):
+        print response.url, '~~~123~~~'
         item = response.meta['item']
         urls = response.xpath('//ul[@class="cpshow"]/li/a')
         for index, _url in enumerate(urls):

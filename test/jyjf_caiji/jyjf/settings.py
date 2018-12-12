@@ -23,8 +23,8 @@ FILES_STORE = './tmp'
 DEFAULT_REQUEST_HEADERS = {
      'accept': 'image/webp,*/*;q=0.8',
      'accept-language': 'zh-CN,zh;q=0.8',
-     'referer': 'http://www.jyjf.com.cn',
-     'user-agent': "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6",
+     'referer': 'http://www.jyjf.com.cn/',
+     'user-agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36",
 }
 
 DOWNLOADER_MIDDLEWARES = {

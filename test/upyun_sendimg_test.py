@@ -37,6 +37,10 @@ def Transfer(_url):
         extname = ".jpg"
     new_name = upload_img(_imgdata, extname)
     print(new_name)
+img_list=['http://www.jyjf.com.cn/UploadFiles/Product/2016-05-18/20160518165306898.jpg',
+          'http://www.jyjf.com.cn/UploadFiles/Product/2017-03-29/20170329120729171.jpg',
+          'http://www.jyjf.com.cn/UploadFiles/Product/2016-05-18/20160518165308398.jpg',
+          'http://www.jyjf.com.cn/UploadFiles/Product/2017-03-29/20170329120731390.jpg']
+for _url in img_list:
+  Transfer(_url)
 
-_url="http://www.threebao.com/uploadfile/2018/0319/20180319104845203.jpg"
-Transfer(_url)
