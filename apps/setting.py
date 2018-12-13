@@ -8,4 +8,4 @@
 # password = ''
 # port = 3306
 # db_name = ''
-sqlurl = 'mysql+pymysql://user:password@ip:port/db_name'
+sqlurl = 'mysql+pymysql://root:123456@127.0.0.1:3306/doors'

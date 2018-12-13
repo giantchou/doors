@@ -5,6 +5,7 @@
 from flask import Blueprint,render_template,request
 from apps.utils import pc_and_m_transform
 index = Blueprint("index",__name__)
+from ..models.model import Products
 
 
 @index.route("/")
@@ -28,7 +29,14 @@ def products(*args,**kwargs):
     :return:
     '''
     template = args[0]
-    return render_template(template,)
+    page = request.args.get("page")
+    intcheck = lambda x:int(x) if x else 1
+    limitcheck = lambda x:int(x) if x else 10
+    page = intcheck(page)
+    limit = request.args.get('limit')
+    limit = limitcheck(limit)
+    products = Products.query.all()[(page-1)*limit:page*limit]
+    return render_template(template,products=products,page=page)
 
 @index.route("/products/<int:pid>.html")
 @pc_and_m_transform({"m-template":"home/m-products-detail.html","pc-template":"home/products-detail.html"})
