@@ -112,22 +112,22 @@
             <div class="layui-col-xs2" onclick="closeDiv();"><i class="layui-icon layui-icon-close"></i></div>
         </div>
         <div class="layui-col-xs12 liuyankuang">
-            <textarea placeholder="请输入留言内容"></textarea>
+            <textarea placeholder="请输入留言内容" id="userdesc"></textarea>
         </div>
         <div class="layui-col-xs12 input">
-            <input class="layui-input" placeholder="姓名">
+            <input class="layui-input" placeholder="姓名" id="username">
         </div>
         <div class="layui-col-xs12 input">
-            <input class="layui-input" placeholder="电话（必填）">
+            <input class="layui-input" placeholder="电话（必填）" id="telnumber">
         </div>
         <div class="layui-col-xs12 input">
-            <input class="layui-input" placeholder="邮箱">
+            <input class="layui-input" placeholder="邮箱" id="email">
         </div>
         <div class="layui-col-xs12 input">
-            <input class="layui-input" placeholder="地址">
+            <input class="layui-input" placeholder="地址" id="address">
         </div>
         <div class="layui-col-xs12 btn">
-            <button class="layui-btn">发送</button>
+            <button class="layui-btn" id="homesubmitform">发送</button>
         </div>
     </div>
 </div>
@@ -170,12 +170,9 @@
 </div>
 
 <script src="/static/layui/layui.js" charset="utf-8"></script>
+<script src="/static/js/jquery.min.js" charset="utf-8"></script>
 <script src="/static/js/init.js" charset="utf-8"></script>
-
 {% block customjs %}
-
-
 {% endblock %}
-
 </body>
 </html>

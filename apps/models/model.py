@@ -11,7 +11,7 @@ db = SQLAlchemy(app)
 
 
 
-class User(db.Model):
+class User(db.Model):#test table
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
@@ -22,6 +22,9 @@ class User(db.Model):
 
 
 class Cate(db.Model):
+    '''
+    分类表
+    '''
     __tablename__ = "cate"
 
     cateid = db.Column(db.Integer,primary_key=True)
@@ -32,6 +35,9 @@ class Cate(db.Model):
 
 
 class Products(db.Model):
+    '''
+    产品表
+    '''
     __tablename__ = "product"
     pid = db.Column(db.Integer,primary_key=True)
     title = db.Column(db.String(100))
@@ -47,3 +53,17 @@ class Products(db.Model):
     hot = db.Column(db.Integer)
     def format_date(self):
         return time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(self.addtime))
+
+class Customer(db.Model):
+    '''
+    意向用户留言表
+    '''
+    __tablename__ = "d_customer"
+    id = db.Column(db.Integer,primary_key=True)
+    tel = db.Column(db.String(11))
+    name = db.Column(db.String(20))
+    email = db.Column(db.String(30))
+    desc = db.Column(db.Text)
+    address = db.Column(db.String(150))
+    addtimes = db.Column(db.Integer)
+
