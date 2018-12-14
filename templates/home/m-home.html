@@ -71,38 +71,16 @@
         </div>
     </div>
     <div class="layui-row chc-product-photo layui-col-space10">
+    {% for i in product_recomment %}
         <div class="layui-col-xs6">
             <div class="photo">
-                <a href="/products/1.html">
-                    <img src="/static/images/product/20160331102244_24954.jpg">
-                    <p>电动伸缩门</p>
+                <a href="/products/{{ i.pid }}.html">
+                    <img src="{{ i.title_img }}">
+                    <p>{{ i.title }}</p>
                 </a>
             </div>
         </div>
-        <div class="layui-col-xs6">
-            <div class="photo">
-                <a href="/products/1.html">
-                    <img src="/static/images/product/20171207103501_59032.jpg">
-                    <p>电动伸缩门</p>
-                </a>
-            </div>
-        </div>
-        <div class="layui-col-xs6">
-            <div class="photo">
-                <a href="/products/1.html">
-                    <img src="/static/images/product/20160331102244_24954.jpg">
-                    <p>电动伸缩门</p>
-                </a>
-            </div>
-        </div>
-        <div class="layui-col-xs6">
-            <div class="photo">
-                <a href="/products/1.html">
-                    <img src="/static/images/product/20171207103501_59032.jpg">
-                    <p>电动伸缩门</p>
-                </a>
-            </div>
-        </div>
+    {% endfor %}
     </div>
     <div class="layui-row chc-online">
         <div class="layui-col-xs3">&nbsp;</div>

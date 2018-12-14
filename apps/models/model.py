@@ -4,7 +4,7 @@
 
 from flask_sqlalchemy import SQLAlchemy
 from Doors import app
-
+import time
 
 
 db = SQLAlchemy(app)
@@ -45,3 +45,5 @@ class Products(db.Model):
     cate1 = db.Column(db.Integer)
     cate2 = db.Column(db.Integer)
     hot = db.Column(db.Integer)
+    def format_date(self):
+        return time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(self.addtime))

@@ -16,9 +16,10 @@ def show(*args,**kwargs):
     :param template:
     :return:
     '''
-    print(">>>>>",args)
     template = args[0]
-    return render_template(template,)
+    product_recomment = Products.query.limit(4)
+    return render_template(template,product_recomment = product_recomment,
+                           )
 
 @index.route("/products/")
 @pc_and_m_transform({"m-template":"home/m-products.html","pc-template":"home/products.html"})
@@ -114,3 +115,9 @@ def address(*args,**kwargs):
     '''
     template = args[0]
     return render_template(template)
+
+@index.route("/sitemap")
+def sitemap():
+    _productids = Products.query.all()
+    idlist = [(i.pid,i.format_date())for i in _productids]
+    return render_template('sitemap/sitemap.xml', idlist=idlist)

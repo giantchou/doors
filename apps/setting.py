@@ -9,8 +9,8 @@
 # port = 3306
 # db_name = ''
 import socket
-# myname = socket.getfqdn(socket.gethostname())
-# myaddr = socket.gethostbyname(myname)
-# print(myaddr)
-#sqlurl = 'mysql+pymysql://root:123456@127.0.0.1:3306/doors'
-sqlurl = 'mysql+pymysql://mha_user:gc895316@127.0.0.1:3306/doors'
+debug = False
+if debug:
+    sqlurl = 'mysql+pymysql://root:123456@127.0.0.1:3306/doors' #测试
+else:
+    sqlurl = 'mysql+pymysql://mha_user:gc895316@127.0.0.1:3306/doors' #正式

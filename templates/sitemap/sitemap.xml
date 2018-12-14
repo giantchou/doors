@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.google.com/schemas/sitemap/0.84">
+{% for id,date in idlist %}
+    <sitemap>
+        <loc>https://m.doors360.cn/products/{{ id }}.html</loc>
+        <lastmod>{{ date }}</lastmod>
+    </sitemap>
+{% endfor %}
+</sitemapindex>
