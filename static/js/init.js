@@ -1,5 +1,26 @@
- layui.use('jquery', function(){
-   $ = layui.jquery;
+ layui.use(['jquery','carousel'], function(){
+  var  $ = layui.jquery,
+      element = layui.element,
+   carousel = layui.carousel;
+   $(".page-next").on("click",function () {
+            var page = Number($('.page-location').html())+Number(1);
+            window.location.href = "/products/?page="+page;
+        })
+      //建造实例
+      //图片轮播
+      carousel.render({
+        elem: '#test10'
+        ,width: '100%'
+        ,height: '300px'
+        ,interval: 3000
+      });
+      carousel.render({
+        elem: '#test11'
+        ,width: '100%'
+        ,height: '420px'
+        ,arrow: 'always'
+        ,interval: 3000
+      });
 });
     // 点击按钮，返回顶部
 function topFunction() {

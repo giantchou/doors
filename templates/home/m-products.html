@@ -1,4 +1,7 @@
 {% extends 'home/m-base.html' %}
+{% block title %}电动门,伸缩门,自动伸缩门,旋转门,车牌识别系统,河南伸缩门厂家 {% endblock %}
+{% block keywords %} 电动门,伸缩门,电动伸缩门,河南电动门，河南伸缩门，河南电动伸缩门，伸缩门厂家,电动门厂家,电动伸缩门厂家{% endblock %}
+{% block description %}金洋九峰15年专注电动门,伸缩门,电动伸缩门,伸缩门厂家,电动门厂家,电动伸缩门厂家,设计研发,产品全工序制造,品质层层把控,值得信赖,为企业提供一站式门道系统解决方案. {% endblock %}
 {% block customcss %}
 
 {% endblock %}
@@ -40,14 +43,4 @@
 
 
 {% block customjs %}
-    <script>
-        layui.use('jquery',function () {
-            var $ = layui.jquery;
-            $(".page-next").on("click",function () {
-                var page = Number($('.page-location').html())+Number(1);
-                window.location.href = "/products/?page="+page;
-            })
-        })
-    </script>
-
 {% endblock %}

@@ -46,8 +46,11 @@ def product_detail(*args,**kwargs):
     :param template:
     :return:
     '''
+    pid = kwargs.get('pid')
     template = args[0]
-    return render_template(template,)
+    productinfo = Products.query.filter_by(pid = pid).first()
+
+    return render_template(template,productinfo = productinfo)
 
 
 @index.route("/news/")
