@@ -26,7 +26,7 @@ def show(*args,**kwargs):
     return render_template(template,product_recomment = product_recomment,
                            hot_product = hot_product)
 
-@index.route("/products/")
+@index.route("/products/<int:cid>/")
 @pc_and_m_transform({"m-template":"home/m-products.html","pc-template":"home/products.html"})
 def products(*args,**kwargs):
     '''
@@ -34,6 +34,8 @@ def products(*args,**kwargs):
     :param template:
     :return:
     '''
+    cid = kwargs.get('cid')
+    cid = cid if cid else 0
     template = args[0]
     page = request.args.get("page")
     intcheck = lambda x:int(x) if x else 1
@@ -41,7 +43,10 @@ def products(*args,**kwargs):
     page = intcheck(page)
     limit = request.args.get('limit')
     limit = limitcheck(limit)
-    products = Products.query.all()[(page-1)*limit:page*limit]
+    if cid:
+        products = Products.query.filter_by(cate1=cid).all()[(page-1)*limit:page*limit]
+    else:
+        products = Products.query.all()[(page - 1) * limit:page * limit]
     return render_template(template,products=products,page=page)
 
 @index.route("/products/<int:pid>.html")
