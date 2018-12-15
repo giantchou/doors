@@ -121,3 +121,8 @@ def sitemap():
     _productids = Products.query.all()
     idlist = [(i.pid,i.format_date())for i in _productids]
     return render_template('sitemap/sitemap.xml', idlist=idlist)
+
+
+@index.route("/buyuser")
+def buyuser():
+    return

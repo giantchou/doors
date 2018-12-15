@@ -1,5 +1,6 @@
- layui.use(['jquery','carousel'], function(){
+ layui.use(['jquery','carousel','form','layer'], function(){
     var element = layui.element,
+        form = layui.form,
    carousel = layui.carousel;
    $(".page-next").on("click",function () {
             var page = Number($('.page-location').html())+Number(1);
@@ -20,14 +21,17 @@
         ,arrow: 'always'
         ,interval: 3000
       });
-
+ //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    $.ajax({
+        url:""
+    });
+    return false;
+  });
 
 });
 
-
-$("#homesubmitform").on("click",function () {
-    alert("sssss")
-});
 
     // 点击按钮，返回顶部
 function topFunction() {

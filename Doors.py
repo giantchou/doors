@@ -6,12 +6,12 @@ from apps.admin.admin import admin
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = sqlurl
+app.config['SQLALCHEMY_POOL_RECYCLE'] = 499
+app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
 app.register_blueprint(index,url_prefix = '/')
 app.register_blueprint(admin,url_prefix = '/admin')
 
-# @app.route('/')
-# def hello_world():
-#     return 'Hello World!'
+
 
 
 if __name__ == '__main__':

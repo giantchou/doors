@@ -106,30 +106,32 @@
     </div>
 <!--留言div-->
 <div  class="layui-row zaixian_liuyan" id="zaixian_liuyan">
-    <div class="layui-col-xs12 head">
-        <div class="layui-row liuyan">
-            <div class="layui-col-xs10">请你留言</div>
-            <div class="layui-col-xs2" onclick="closeDiv();"><i class="layui-icon layui-icon-close"></i></div>
+    <form class="layui-form" action="" onsubmit="return false">
+        <div class="layui-col-xs12 head">
+            <div class="layui-row liuyan">
+                <div class="layui-col-xs10">请你留言</div>
+                <div class="layui-col-xs2" onclick="closeDiv();"><i class="layui-icon layui-icon-close"></i></div>
+            </div>
+            <div class="layui-col-xs12 liuyankuang layui-form-item">
+                <textarea placeholder="请输入留言内容" id="userdesc" name="userdesc" class="layui-input"></textarea>
+            </div>
+            <div class="layui-col-xs12 input layui-form-item">
+                <input class="layui-input" placeholder="姓名" id="username" name="username">
+            </div>
+            <div class="layui-col-xs12 input layui-form-item">
+                <input class="layui-input" name="telnumber" placeholder="电话（必填）" id="telnumber" lay-verify="required|phone">
+            </div>
+            <div class="layui-col-xs12 input layui-form-item">
+                <input class="layui-input" placeholder="邮箱" id="email" name="email">
+            </div>
+            <div class="layui-col-xs12 input layui-form-item">
+                <input class="layui-input" placeholder="地址" id="address" name="address">
+            </div>
+            <div class="layui-col-xs12 btn">
+                <button class="layui-btn" id="homesubmitform" lay-submit lay-filter="formDemo">发送</button>
+            </div>
         </div>
-        <div class="layui-col-xs12 liuyankuang">
-            <textarea placeholder="请输入留言内容" id="userdesc"></textarea>
-        </div>
-        <div class="layui-col-xs12 input">
-            <input class="layui-input" placeholder="姓名" id="username">
-        </div>
-        <div class="layui-col-xs12 input">
-            <input class="layui-input" placeholder="电话（必填）" id="telnumber">
-        </div>
-        <div class="layui-col-xs12 input">
-            <input class="layui-input" placeholder="邮箱" id="email">
-        </div>
-        <div class="layui-col-xs12 input">
-            <input class="layui-input" placeholder="地址" id="address">
-        </div>
-        <div class="layui-col-xs12 btn">
-            <button class="layui-btn" id="homesubmitform">发送</button>
-        </div>
-    </div>
+    </form>
 </div>
 
 <!--分类div-右侧滑出-->
