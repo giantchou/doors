@@ -9,7 +9,7 @@
 # port = 3306
 # db_name = ''
 import socket
-debug = True
+debug = False
 if debug:
     sqlurl = 'mysql+pymysql://root:123456@127.0.0.1:3306/doors' #测试
 else:
