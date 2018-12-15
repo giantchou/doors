@@ -14,6 +14,7 @@ def cate():
     data = {}
     _cate = model.Cate.query.filter_by(level=1).all()
     cate = [(i.cateid,i.name) for i in _cate]
+    model.db.session.close()
     data['code'] = 0
     data['data'] = cate
     data['msg'] = 'success'

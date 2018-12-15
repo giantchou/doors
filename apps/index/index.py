@@ -23,6 +23,7 @@ def show(*args,**kwargs):
     template = args[0]
     product_recomment = Products.query.limit(4)
     hot_product = Products.query.order_by('hot').limit(4)
+    db.session.close()
     return render_template(template,product_recomment = product_recomment,
                            hot_product = hot_product)
 
@@ -47,6 +48,7 @@ def products(*args,**kwargs):
         products = Products.query.filter_by(cate1=cid).all()[(page-1)*limit:page*limit]
     else:
         products = Products.query.all()[(page - 1) * limit:page * limit]
+    db.session.close()
     return render_template(template,products=products,page=page)
 
 @index.route("/products/<int:pid>.html")
@@ -60,7 +62,7 @@ def product_detail(*args,**kwargs):
     pid = kwargs.get('pid')
     template = args[0]
     productinfo = Products.query.filter_by(pid = pid).first()
-
+    db.session.close()
     return render_template(template,productinfo = productinfo)
 
 
@@ -130,6 +132,7 @@ def address(*args,**kwargs):
 def sitemap():
     _productids = Products.query.all()
     idlist = [(i.pid,i.format_date())for i in _productids]
+    db.session.close()
     return render_template('sitemap/sitemap.xml', idlist=idlist)
 
 
