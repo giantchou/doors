@@ -9,14 +9,18 @@
 {% block content%}
     <div class="layui-row header_nav layui-col-space10">
         <div class="layui-col-sm4 layui-col-xs4 ">
-            <div class="chc-nav">
-                <a href="/">金洋首页</a>
-            </div>
+            <a href="/">
+                <div class="chc-nav">
+                    金洋首页
+                </div>
+            </a>
         </div>
         <div class="layui-col-sm4 layui-col-xs4 ">
-            <div class="chc-nav">
-               <a href="/products/"> 产品主页</a>
-            </div>
+            <a href="/products/">
+                <div class="chc-nav">
+                    产品主页
+                </div>
+            </a>
         </div>
         <!--div class="layui-col-sm4 layui-col-xs4 ">
             <div class="chc-nav">
@@ -24,24 +28,32 @@
             </div>
         </div-->
         <div class="layui-col-sm4 layui-col-xs4 ">
-            <div class="chc-nav">
-                <a href="/sexample">成功案例</a>
-            </div>
+            <a href="/sexample">
+                <div class="chc-nav">
+                    成功案例
+                </div>
+            </a>
         </div>
         <div class="layui-col-sm4 layui-col-xs4 ">
-            <div class="chc-nav">
-                <a href="">门店展示</a>
-            </div>
+            <a href="">
+                <div class="chc-nav">
+                    门店展示
+                </div>
+            </a>
         </div>
         <div class="layui-col-sm4 layui-col-xs4 ">
-            <div class="chc-nav">
-                <a href="/honour">荣誉证书</a>
-            </div>
+            <a href="/honour">
+                <div class="chc-nav">
+                    荣誉证书
+                </div>
+            </a>
         </div>
         <div class="layui-col-sm4 layui-col-xs4 ">
-            <div class="chc-nav">
-                <a href="/aboutus.html">关于金洋</a>
-            </div>
+            <a href="/aboutus.html">
+                <div class="chc-nav">
+                    关于金洋
+                </div>
+            </a>
         </div>
     </div>
     <div class="layui-row">
@@ -60,27 +72,42 @@
     </div>
     <div class="layui-row chc-product-item">
         <div class="layui-col-xs6">
-            <div class="c-label this">
+            <div class="c-label this new-products">
                 最新商品
             </div>
         </div>
         <div class="layui-col-xs6">
-            <div class="c-label">
+            <div class="c-label hot-products">
                 热销商品
             </div>
         </div>
     </div>
     <div class="layui-row chc-product-photo layui-col-space10">
-    {% for i in product_recomment %}
-        <div class="layui-col-xs6">
-            <div class="photo">
-                <a href="/products/{{ i.pid }}.html">
-                    <img src="{{ i.title_img }}">
-                    <p>{{ i.title }}</p>
-                </a>
-            </div>
+        <div id="new-products">
+            {% for i in product_recomment %}
+                <div class="layui-col-xs6" >
+                    <div class="photo">
+                        <a href="/products/{{ i.pid }}.html">
+                            <img src="{{ i.title_img }}">
+                            <p>{{ i.title }}</p>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
+        <div id="hot-products" style="display: none;">
+            {% for i in hot_product %}
+                <div class="layui-col-xs6" >
+                    <div class="photo">
+                        <a href="/products/{{ i.pid }}.html">
+                            <img src="{{ i.title_img }}">
+                            <p>{{ i.title }}</p>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
     </div>
     <div class="layui-row chc-online">
         <div class="layui-col-xs3">&nbsp;</div>

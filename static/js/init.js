@@ -1,6 +1,7 @@
  layui.use(['jquery','carousel','form','layer'], function(){
     var element = layui.element,
         form = layui.form,
+        layur = layui.layer,
    carousel = layui.carousel;
    $(".page-next").on("click",function () {
             var page = Number($('.page-location').html())+Number(1);
@@ -23,16 +24,39 @@
       });
  //监听提交
   form.on('submit(formDemo)', function(data){
-    layer.msg(JSON.stringify(data.field));
     $.ajax({
-        url:""
+        url:"/buyuser",
+        type:"post",
+        dataType: "json",
+        data:data.field,
+        success:function (result) {
+            alert(result);
+            layer.msg(result.msg,{time:2000});
+            if(result.code==0){
+                setTimeout(function () {
+                    $("#zaixian_liuyan").css("display","none");
+                },2000);
+            }
+        }
+
     });
     return false;
   });
 
 });
 
-
+$(".new-products").on("click",function () {
+    $(this).addClass("this");
+    $("#new-products").css("display",'block');
+    $(".hot-products").removeClass("this");
+    $("#hot-products").css("display",'none');
+});
+$(".hot-products").on("click",function () {
+    $(this).addClass("this");
+    $("#hot-products").css("display",'block');
+    $(".new-products").removeClass("this");
+    $("#new-products").css("display",'none');
+});
     // 点击按钮，返回顶部
 function topFunction() {
     document.body.scrollTop = 0;

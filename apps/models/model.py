@@ -60,7 +60,7 @@ class Customer(db.Model):
     '''
     __tablename__ = "d_customer"
     id = db.Column(db.Integer,primary_key=True)
-    tel = db.Column(db.String(11))
+    tel = db.Column(db.String(11),nullable=True)
     name = db.Column(db.String(20))
     email = db.Column(db.String(30))
     desc = db.Column(db.Text)

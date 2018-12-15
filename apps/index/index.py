@@ -2,10 +2,14 @@
 # @author: chenhuachao
 # @time: 2018/11/20
 
-from flask import Blueprint,render_template,request
+from flask import Blueprint,render_template,\
+    request,jsonify
 from apps.utils import pc_and_m_transform
+
 index = Blueprint("index",__name__)
-from ..models.model import Products
+import time
+from ..models.model import Products,Customer,db
+
 
 
 @index.route("/")
@@ -18,8 +22,10 @@ def show(*args,**kwargs):
     '''
     template = args[0]
     product_recomment = Products.query.limit(4)
+    hot_product = Products.query.order_by('hot').limit(4)
+
     return render_template(template,product_recomment = product_recomment,
-                           )
+                           hot_product = hot_product)
 
 @index.route("/products/")
 @pc_and_m_transform({"m-template":"home/m-products.html","pc-template":"home/products.html"})
@@ -123,6 +129,17 @@ def sitemap():
     return render_template('sitemap/sitemap.xml', idlist=idlist)
 
 
-@index.route("/buyuser")
+@index.route("/buyuser",methods=['POST'])
 def buyuser():
-    return
+    data = {}
+    params = request.form
+    print(params)
+    print(params.get('userdesc'))
+    customer = Customer(tel=params.get('telnumber'),name=params.get('username'),
+                        email=params.get("email"),address=params.get('address'),
+                        desc=params.get("userdesc"),addtimes=int(time.time()))
+    db.session.add(customer)
+    db.session.commit()
+    data['code'] = 0
+    data['msg'] = '提交成功'
+    return jsonify(data)
