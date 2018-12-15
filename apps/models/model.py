@@ -26,7 +26,6 @@ class Cate(db.Model):
     分类表
     '''
     __tablename__ = "cate"
-
     cateid = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(50))
     level = db.Column(db.Integer)

@@ -23,7 +23,6 @@ def show(*args,**kwargs):
     template = args[0]
     product_recomment = Products.query.limit(4)
     hot_product = Products.query.order_by('hot').limit(4)
-
     return render_template(template,product_recomment = product_recomment,
                            hot_product = hot_product)
 

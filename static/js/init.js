@@ -44,7 +44,16 @@
   });
 
 });
-
+//*******init*********
+ (function () {
+    $.getJSON("/api/cate/",function (data) {
+        $.each(data.data,function (i,d) {
+            $('.cate-container').append('<div class="layui-col-xs12">\n' +
+                '            <a href="/'+d[0]+'"><span class="layui-badge-dot"></span>&nbsp;'+d[1]+'</a>\n' +
+                '        </div>')
+        })
+    })
+ })();
 $(".new-products").on("click",function () {
     $(this).addClass("this");
     $("#new-products").css("display",'block');
