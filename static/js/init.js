@@ -31,7 +31,7 @@
         dataType: "json",
         data:data.field,
         success:function (result) {
-            alert(result);
+            // alert(result);
             layer.msg(result.msg,{time:2000});
             if(result.code==0){
                 setTimeout(function () {
