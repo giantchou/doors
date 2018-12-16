@@ -42,14 +42,21 @@ def products(*args,**kwargs):
     page = intcheck(page)
     limit = request.args.get('limit')
     limit = limitcheck(limit)
+    if page>1:
+        previous_page = page-1
+    else:
+        previous_page = 1
+    next_page = page +1
     if cid:
         products = session.query(Products).filter_by(cate1=cid).all()[(page-1)*limit:page*limit]
     else:
         products = session.query(Products).all()[(page - 1) * limit:page * limit]
     session.close()
     count = len(products)
+    print(count)
     return render_template(template,products=products,page=page,
-                           count=count)
+                           count=count,cid = cid,previous_page = previous_page,
+                           next_page = next_page)
 
 @index.route("/products/<int:pid>.html")
 @pc_and_m_transform({"m-template":"home/m-products-detail.html","pc-template":"home/products-detail.html"})
