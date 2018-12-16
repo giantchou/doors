@@ -71,7 +71,7 @@ class Customer(Base):
     addtimes = Column(Integer)
 
 # 初始化数据库连接:
-engine = create_engine(sqlurl)
+engine = create_engine(sqlurl,pool_size=100, pool_recycle=3600)
 # 创建DBSession类型:
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
