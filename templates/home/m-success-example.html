@@ -25,6 +25,19 @@
         </div>
     {% endfor %}
     </div>
+    <div class="layui-row chc-product-page">
+        <div class="layui-col-xs12">
+            <div class="c-page">
+            {% if page > 1 %}
+                <a href="/example/{{ cid }}/?page={{ previous_page }}" class="page-previous">上一页</a>
+            {% endif %}
+                <a class="page-location">{{ page }}</a>
+            {% if count == 10 %}
+                <a href="/example/{{ cid }}/?page={{ next_page }}" class="page-next">下一页</a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 

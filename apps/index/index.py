@@ -5,11 +5,12 @@
 from flask import Blueprint,render_template,\
     request,jsonify
 import json
-from apps.utils import pc_and_m_transform,intcheck,limitcheck
+from apps.setting import mysqlconfig
+from apps.utils import pc_and_m_transform,intcheck,\
+    limitcheck,MysqlHandle
 
 index = Blueprint("index",__name__)
 import time
-from ..models.model import Products,Customer,session,Cases
 
 
 
@@ -22,9 +23,9 @@ def show(*args,**kwargs):
     :return:
     '''
     template = args[0]
-    product_recomment = session.query(Products).limit(4)
-    hot_product = session.query(Products).order_by('-hot').limit(4)
-    session.close()
+    mysqlhandle = MysqlHandle(**mysqlconfig)
+    product_recomment = mysqlhandle.select("select * from product limit 0,4")
+    hot_product = mysqlhandle.select("select * from product order by hot desc limit 0,4")
     return render_template(template,product_recomment = product_recomment,
                            hot_product = hot_product)
 
@@ -39,6 +40,7 @@ def products(*args,**kwargs):
     cid = kwargs.get('cid')
     cid = cid if cid else 0
     template = args[0]
+    mysqlhandle = MysqlHandle(**mysqlconfig)
     page = request.args.get("page")
     page = intcheck(page)
     limit = request.args.get('limit')
@@ -49,10 +51,16 @@ def products(*args,**kwargs):
         previous_page = 1
     next_page = page +1
     if cid:
-        products = session.query(Products).filter_by(cate1=cid).all()[(page-1)*limit:page*limit]
+        products = mysqlhandle.select("select * from product where cate1={cate1} limit {start},{step}".format(
+            cate1 = cid,
+            start = (page-1)*limit,
+            step = page*limit
+        ))
     else:
-        products = session.query(Products).all()[(page - 1) * limit:page * limit]
-    session.close()
+        products = mysqlhandle.select("select * from product  limit {start},{step}".format(
+            start = (page-1)*limit,
+            step = page*limit
+        ))
     count = len(products)
     return render_template(template,products=products,page=page,
                            count=count,cid = cid,previous_page = previous_page,
@@ -66,20 +74,15 @@ def product_detail(*args,**kwargs):
     :param template:
     :return:
     '''
-    data={}
     pid = kwargs.get('pid')
     template = args[0]
-    productinfo = session.query(Products).filter(Products.pid == pid)
-    productinfo.update({Products.hot:Products.hot+1})
-    productdesc = productinfo.first()
-    data['title'] = productdesc.title
-    data['content'] = productdesc.content
-    data['keyword'] = productdesc.keyword
-    data['abstract'] = productdesc.abstract
-    data['title_img'] = productdesc.title_img
-    session.commit()
-    session.close()
-    return render_template(template,productinfo = data)
+    mysqlhandle = MysqlHandle(**mysqlconfig)
+    productinfo = mysqlhandle.select("select * from product where pid = {pid}".format(pid = pid))
+    if productinfo:
+        productinfo = productinfo[0]
+    mysqlhandle.other_op("update product set hot=hot+1 where pid = {pid}".format(pid=pid))
+
+    return render_template(template,productinfo = productinfo)
 
 
 @index.route("/news/")
@@ -119,7 +122,7 @@ def honour(*args,**kwargs):
     return render_template(template)
 
 
-@index.route("/example")
+@index.route("/example/<int:cid>/")
 @pc_and_m_transform({"m-template":"home/m-success-example.html","pc-template":"home/success-example.html"})
 def sexample(*args,**kwargs):
     '''
@@ -128,13 +131,31 @@ def sexample(*args,**kwargs):
     :param kwargs:
     :return:
     '''
+    cid = kwargs.get('cid')
+    cid = cid if cid else 0
     template = args[0]
+    mysqlhandle = MysqlHandle(**mysqlconfig)
     page = request.args.get("page")
     page = intcheck(page)
     limit = request.args.get('limit')
     limit = limitcheck(limit)
-    examples = session.query(Cases).all()[(page-1)*limit:page*limit]
-    return render_template(template,examples = examples)
+    if page>1:
+        previous_page = page-1
+    else:
+        previous_page = 1
+    next_page = page +1
+    if cid:
+        examples  = mysqlhandle.select("select * from cases where cid = {cid} limit {start},{step}".format(
+                                                cid=cid,start=(page-1)*limit,
+                                                        step = page*limit))
+    else:
+        examples = mysqlhandle.select("select * from cases limit {start},{step}".format(start=(page-1)*limit,
+                                                        step = page*limit))
+    count = len(examples)
+    return render_template(template,examples = examples,previous_page = previous_page,
+                           next_page = next_page,
+                           count =count,
+                           cid=cid,page = page)
 
 
 @index.route("/example/<int:cid>.html")
@@ -148,8 +169,10 @@ def sexample_desc(*args,**kwargs):
     '''
     cid = kwargs.get('cid')
     template = args[0]
-    exampleinfo = session.query(Cases).filter_by(cid = cid).first()
-    session.close()
+    mysqlhandle = MysqlHandle(**mysqlconfig)
+    exampleinfo = mysqlhandle.select("select * from cases where cid = {cid}".format(cid=cid))
+    if exampleinfo:
+        exampleinfo = exampleinfo[0]
     return render_template(template,exampleinfo = exampleinfo)
 
 
@@ -168,9 +191,10 @@ def address(*args,**kwargs):
 
 @index.route("/sitemap")
 def sitemap():
-    _productids = session.query(Products).all()
-    idlist = [(i.pid,i.format_date())for i in _productids]
-    session.close()
+    mysqlhandle = MysqlHandle(**mysqlconfig)
+    _productids = mysqlhandle.select("select pid,addtime from product")
+    idlist = [(i.pid,time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(i.addtime)))
+              for i in _productids]
     return render_template('sitemap/sitemap.xml', idlist=idlist)
 
 
@@ -180,11 +204,14 @@ def buyuser():
     params = request.form
     if not params:
         params = json.loads(request.data)
-    customer = Customer(tel=params.get('telnumber'),name=params.get('username'),
-                        email=params.get("email"),address=params.get('address'),
-                        desc=params.get("userdesc"),addtimes=int(time.time()))
-    session.add(customer)
-    session.commit()
+    mysqlhandle = MysqlHandle(**mysqlconfig)
+    mysqlhandle.other_op("insert into d_customer "
+                         "(`tel`,`name`,`email`,`address`,`desc`,`addtimes`) "
+                         "VALUES ('{tel}','{name}','{email}','{address}','{desc}',{addtimes})".format(
+                            tel=params.get('telnumber'), name=params.get('username'),
+                            email=params.get("email"), address=params.get('address'),
+                            desc=params.get("userdesc"), addtimes=int(time.time())
+                        ))
     data['code'] = 0
-    data['msg'] = '提交成功'
+    data['msg'] = '提交成功,会及时联系您。'
     return jsonify(data)

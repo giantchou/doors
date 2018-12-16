@@ -17,9 +17,6 @@ mysqlconfig={
 }
 
 
-Chat_Table_Name= 'bx_chat_message'
-User_Table_Name= 'bx_user'
-City_Table_Name = 'area'
 
 
 
@@ -34,6 +31,7 @@ class MysqlHandle(object):
         return _conn
 
     def other_op(self,sql):
+        print(sql)
         self.cusor.execute(sql)
         self.conn.commit()
     def select(self,sql):
