@@ -4,7 +4,45 @@
 
 from flask import request
 from functools import wraps
+import pymysql.cursors
 
+mysqlconfig={
+    "host":"mysql.site.bao361.cn",
+    "port":3306,
+    "user":"bx_user",
+    "passwd":"gc895316",
+    "db":"bx_abc",
+    "cursorclass":pymysql.cursors.DictCursor,
+     "charset":'utf8'
+}
+
+
+Chat_Table_Name= 'bx_chat_message'
+User_Table_Name= 'bx_user'
+City_Table_Name = 'area'
+
+
+
+
+class MysqlHandle(object):
+    def __init__(self,**conf):
+        self.conf=conf
+        self.conn = self.connection()
+        self.cusor = self.conn.cursor()
+    def connection(self):
+        _conn= pymysql.connect(**self.conf)
+        return _conn
+
+    def other_op(self,sql):
+        self.cusor.execute(sql)
+        self.conn.commit()
+    def select(self,sql):
+        _r = self.cusor.execute(sql)
+        return self.cusor.fetchall()
+
+    def __del__(self):
+        print("close db")
+        self.conn.close()
 intcheck = lambda x: int(x) if x else 1
 limitcheck = lambda x: int(x) if x else 10
 

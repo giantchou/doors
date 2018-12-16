@@ -5,11 +5,12 @@
 # from flask_sqlalchemy import SQLAlchemy
 from Doors import app
 import time
-from sqlalchemy.pool import NullPool
+# from sqlalchemy.pool import NullPool
 from apps.setting import  sqlurl
-from sqlalchemy import Column, String, create_engine,Integer,Text
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import Column, String, create_engine,Integer,Text,MetaData
+# from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import scoped_session, sessionmaker
 
 Base = declarative_base()
 # db = SQLAlchemy(app)
@@ -90,8 +91,17 @@ class Cases(Base):
     area = Column(String(20))
 
 # 初始化数据库连接:
-engine = create_engine(sqlurl,convert_unicode=True,poolclass=NullPool)
-# engine = create_engine(sqlurl,pool_size=100, pool_recycle=3600,poolclass=NullPool)
-# 创建DBSession类型:
-DBSession = sessionmaker(bind=engine)
-session = DBSession()
+# engine = create_engine(sqlurl,convert_unicode=True,poolclass=NullPool)
+# # 创建DBSession类型:
+# DBSession = sessionmaker(bind=engine)
+# session = DBSession()
+
+
+
+metadata = MetaData()
+engine = create_engine(sqlurl, encoding='utf-8', pool_recycle=3600)
+session = scoped_session(sessionmaker(autocommit=False,
+                                      expire_on_commit = False,
+                                      autoflush=True,
+                                      bind=engine))
+metadata.create_all(bind=engine)
