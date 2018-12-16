@@ -9,6 +9,13 @@
             var cid = window.location.href.split('/')[4];
             window.location.href = "/products/"+cid+"/?page="+page;
         });
+   $(".page-previous").on("click",function () {
+        var page = Number($('.page-location').html())-Number(1);
+        var cid = window.location.href.split('/')[4];
+        if(page>0){
+            window.location.href = "/products/"+cid+"/?page="+page;
+        }
+   });
   //图片轮播
   carousel.render({
     elem: '#test10'

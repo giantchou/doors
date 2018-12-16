@@ -4,11 +4,11 @@
 
 from flask import Blueprint,render_template,\
     request,jsonify
-from apps.utils import pc_and_m_transform
+from apps.utils import pc_and_m_transform,intcheck,limitcheck
 
 index = Blueprint("index",__name__)
 import time
-from ..models.model import Products,Customer,session
+from ..models.model import Products,Customer,session,Cases
 
 
 
@@ -39,8 +39,6 @@ def products(*args,**kwargs):
     cid = cid if cid else 0
     template = args[0]
     page = request.args.get("page")
-    intcheck = lambda x:int(x) if x else 1
-    limitcheck = lambda x:int(x) if x else 10
     page = intcheck(page)
     limit = request.args.get('limit')
     limit = limitcheck(limit)
@@ -49,7 +47,9 @@ def products(*args,**kwargs):
     else:
         products = session.query(Products).all()[(page - 1) * limit:page * limit]
     session.close()
-    return render_template(template,products=products,page=page)
+    count = len(products)
+    return render_template(template,products=products,page=page,
+                           count=count)
 
 @index.route("/products/<int:pid>.html")
 @pc_and_m_transform({"m-template":"home/m-products-detail.html","pc-template":"home/products-detail.html"})
@@ -114,7 +114,32 @@ def sexample(*args,**kwargs):
     :return:
     '''
     template = args[0]
-    return render_template(template)
+    page = request.args.get("page")
+    page = intcheck(page)
+    limit = request.args.get('limit')
+    limit = limitcheck(limit)
+    examples = session.query(Cases).all()[(page-1)*limit:page*limit]
+    return render_template(template,examples = examples)
+
+
+@index.route("/sexample/<int:cid>.html")
+@pc_and_m_transform({"m-template":"home/m-success-example.html","pc-template":"home/success-example.html"})
+def sexample_desc(*args,**kwargs):
+    '''
+     成功案例
+    :param args:
+    :param kwargs:
+    :return:
+    '''
+    template = args[0]
+    page = request.args.get("page")
+    page = intcheck(page)
+    limit = request.args.get('limit')
+    limit = limitcheck(limit)
+    examples = session.query(Cases).all()[(page-1)*limit:page*limit]
+    return render_template(template,examples = examples)
+
+
 
 @index.route("/address")
 @pc_and_m_transform({"m-template":"home/m-address.html","pc-template":"home/address.html"})

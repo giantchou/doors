@@ -16,52 +16,14 @@
         </div>
     </div>
     <div class="layui-row chc-success-example layui-col-space10">
+    {% for i in examples %}
         <div class="layui-col-xs12 example">
             <a href="">
-                <h3 class="title">黄河科技学院南大门</h3>
-                <p class="detail">气派的南大门</p>
+                <h3 class="title">{{ i.title }}</h3>
+                <p class="detail">{{ i.abstract }}</p>
             </a>
         </div>
-        <div class="layui-col-xs12 example">
-            <a href="">
-                <h3 class="title">郑州轻工业学院正大门</h3>
-                <p class="detail">豪华不锈钢伸缩自动门</p>
-            </a>
-        </div>
-        <div class="layui-col-xs12 example">
-            <a href="">
-                <h3 class="title">黄河科技学院南大门</h3>
-                <p class="detail">气派的南大门</p>
-            </a>
-        </div>
-        <div class="layui-col-xs12 example">
-            <a href="">
-                <h3 class="title">郑州轻工业学院正大门</h3>
-                <p class="detail">豪华不锈钢伸缩自动门</p>
-            </a>
-        </div>
-        <div class="layui-col-xs12 example">
-            <a href="">
-                <h3 class="title">黄河科技学院南大门</h3>
-                <p class="detail">气派的南大门</p>
-            </a>
-        </div>
-        <div class="layui-col-xs12 example">
-            <a href="">
-                <h3 class="title">郑州轻工业学院正大门</h3>
-                <p class="detail">豪华不锈钢伸缩自动门</p>
-            </a>
-        </div>
-        <div class="layui-col-xs12 example">
-            <a href="">
-                <h3 class="title">黄河科技学院南大门</h3>
-            </a>
-        </div>
-        <div class="layui-col-xs12 example">
-            <a href="">
-                <h3 class="title">郑州轻工业学院正大门</h3>
-            </a>
-        </div>
+    {% endfor %}
     </div>
 {% endblock %}
 

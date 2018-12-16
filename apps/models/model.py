@@ -5,6 +5,7 @@
 # from flask_sqlalchemy import SQLAlchemy
 from Doors import app
 import time
+from sqlalchemy.pool import NullPool
 from apps.setting import  sqlurl
 from sqlalchemy import Column, String, create_engine,Integer,Text
 from sqlalchemy.orm import sessionmaker
@@ -70,8 +71,27 @@ class Customer(Base):
     address = Column(String(150))
     addtimes = Column(Integer)
 
+
+class Cases(Base):
+    '''
+     成功案例表
+    '''
+    __tablename__ = "cases"
+    cid = Column(Integer,primary_key=True)
+    title = Column(String(100))
+    keyword = Column(String(100))
+    abstract = Column(String(255))
+    content = Column(Text())
+    addtime = Column(Integer)
+    from_web = Column(String(255))
+    title_img = Column(String(255))
+    cate1 = Column(Integer)
+    cate2 = Column(Integer)
+    area = Column(String(20))
+
 # 初始化数据库连接:
-engine = create_engine(sqlurl,pool_size=100, pool_recycle=3600)
+engine = create_engine(sqlurl,convert_unicode=True,poolclass=NullPool)
+# engine = create_engine(sqlurl,pool_size=100, pool_recycle=3600,poolclass=NullPool)
 # 创建DBSession类型:
 DBSession = sessionmaker(bind=engine)
 session = DBSession()

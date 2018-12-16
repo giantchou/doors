@@ -5,7 +5,8 @@
 from flask import request
 from functools import wraps
 
-
+intcheck = lambda x: int(x) if x else 1
+limitcheck = lambda x: int(x) if x else 10
 
 def pc_and_m_transform(params):
     '''
