@@ -54,14 +54,24 @@
 });
 //*******init*********
  (function () {
-    $.getJSON("/api/cate/",function (data) {
-        $.each(data.data,function (i,d) {
-            $('.cate-container').append('<div class="layui-col-xs12">\n' +
-                '            <a href="/products/'+d[0]+'/"><span class="layui-badge-dot"></span>&nbsp;'+d[1]+'</a>\n' +
-                '        </div>')
+     var path = window.location.href.split('/');
+        $.getJSON("/api/cate/",function (data) {
+            $.each(data.data,function (i,d) {
+                if(path.indexOf("example")!=-1){
+                    $('.cate-container').append('<div class="layui-col-xs12">\n' +
+                        '            <a href="/example/'+d[0]+'/"><span class="layui-badge-dot"></span>&nbsp;'+d[1]+'</a>\n' +
+                        '        </div>')
+                }else {
+                    $('.cate-container').append('<div class="layui-col-xs12">\n' +
+                        '            <a href="/products/'+d[0]+'/"><span class="layui-badge-dot"></span>&nbsp;'+d[1]+'</a>\n' +
+                        '        </div>')
+                }
+            })
         })
-    })
  })();
+ $(".at_once_buy").on("click",function () {
+     $(".zaixian_liuyan").css("display","block");
+ });
 $(".new-products").on("click",function () {
     $(this).addClass("this");
     $("#new-products").css("display",'block');
@@ -93,11 +103,11 @@ function zhedie() {
   $(".chc-cate").css("opacity","1.0");
 }
 
-// document.addEventListener("click", function(e){
-//      // 判断被点击的元素是不是scheduleInput元素，不是的话，就隐藏之
-//     var cateleft = document.getElementById("zhedieid");
-//     console.log(e.target);
-//      if( e.target !== cateleft ){
-//            $("#chc-cate").animate({right:"-59%"});
-//      }
-// });
+document.addEventListener("click", function(e){
+     // 判断被点击的元素是不是scheduleInput元素，不是的话，就隐藏之
+    var cateleft = document.getElementById("zhedieid");
+    console.log(e.target);
+     if( e.target !== cateleft ){
+           $("#chc-cate").animate({right:"-59%"});
+     }
+});

@@ -54,12 +54,12 @@ def products(*args,**kwargs):
         products = mysqlhandle.select("select * from product where cate1={cate1} limit {start},{step}".format(
             cate1 = cid,
             start = (page-1)*limit,
-            step = page*limit
+            step = limit
         ))
     else:
         products = mysqlhandle.select("select * from product  limit {start},{step}".format(
             start = (page-1)*limit,
-            step = page*limit
+            step = limit
         ))
     count = len(products)
     return render_template(template,products=products,page=page,
@@ -147,10 +147,10 @@ def sexample(*args,**kwargs):
     if cid:
         examples  = mysqlhandle.select("select * from cases where cid = {cid} limit {start},{step}".format(
                                                 cid=cid,start=(page-1)*limit,
-                                                        step = page*limit))
+                                                        step = limit))
     else:
         examples = mysqlhandle.select("select * from cases limit {start},{step}".format(start=(page-1)*limit,
-                                                        step = page*limit))
+                                                        step = limit))
     count = len(examples)
     return render_template(template,examples = examples,previous_page = previous_page,
                            next_page = next_page,
