@@ -23,7 +23,7 @@ def show(*args,**kwargs):
     '''
     template = args[0]
     product_recomment = session.query(Products).limit(4)
-    hot_product = session.query(Products).order_by('hot').limit(4)
+    hot_product = session.query(Products).order_by('-hot').limit(4)
     session.close()
     return render_template(template,product_recomment = product_recomment,
                            hot_product = hot_product)
@@ -54,7 +54,6 @@ def products(*args,**kwargs):
         products = session.query(Products).all()[(page - 1) * limit:page * limit]
     session.close()
     count = len(products)
-    print(count)
     return render_template(template,products=products,page=page,
                            count=count,cid = cid,previous_page = previous_page,
                            next_page = next_page)
@@ -67,11 +66,20 @@ def product_detail(*args,**kwargs):
     :param template:
     :return:
     '''
+    data={}
     pid = kwargs.get('pid')
     template = args[0]
-    productinfo = session.query(Products).filter_by(pid = pid).first()
+    productinfo = session.query(Products).filter(Products.pid == pid)
+    productinfo.update({Products.hot:Products.hot+1})
+    productdesc = productinfo.first()
+    data['title'] = productdesc.title
+    data['content'] = productdesc.content
+    data['keyword'] = productdesc.keyword
+    data['abstract'] = productdesc.abstract
+    data['title_img'] = productdesc.title_img
+    session.commit()
     session.close()
-    return render_template(template,productinfo = productinfo)
+    return render_template(template,productinfo = data)
 
 
 @index.route("/news/")
@@ -96,7 +104,6 @@ def newsdetail(*args,**kwargs):
     :return:
     '''
     nid = kwargs.get("nid")
-    print("nid=",nid)
     return render_template(args[0])
 
 @index.route("/aboutus.html")
@@ -171,11 +178,8 @@ def sitemap():
 def buyuser():
     data = {}
     params = request.form
-    print("data",request.data)
-    print(params)
     if not params:
         params = json.loads(request.data)
-    print(params.get('userdesc'))
     customer = Customer(tel=params.get('telnumber'),name=params.get('username'),
                         email=params.get("email"),address=params.get('address'),
                         desc=params.get("userdesc"),addtimes=int(time.time()))

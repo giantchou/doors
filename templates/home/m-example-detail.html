@@ -7,8 +7,11 @@
 {% endblock %}
 
 {% block content%}
-    <div class="layui-row chc-product-detail">
-        <div class="layui-col-xs12 p-header">
+    <div class="layui-row chc-example-detail">
+        <div class="layui-col-xs12">
+            <h1>{{ exampleinfo.title }}</h1>
+        </div>
+        <div class="layui-col-xs12 desc">
             {% autoescape off %}
             {{ exampleinfo.content }}
             {% endautoescape %}
