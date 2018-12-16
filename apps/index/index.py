@@ -112,7 +112,7 @@ def honour(*args,**kwargs):
     return render_template(template)
 
 
-@index.route("/sexample")
+@index.route("/example")
 @pc_and_m_transform({"m-template":"home/m-success-example.html","pc-template":"home/success-example.html"})
 def sexample(*args,**kwargs):
     '''
@@ -130,8 +130,8 @@ def sexample(*args,**kwargs):
     return render_template(template,examples = examples)
 
 
-@index.route("/sexample/<int:cid>.html")
-@pc_and_m_transform({"m-template":"home/m-success-example.html","pc-template":"home/success-example.html"})
+@index.route("/example/<int:cid>.html")
+@pc_and_m_transform({"m-template":"home/m-example-detail.html","pc-template":"home/success-example.html"})
 def sexample_desc(*args,**kwargs):
     '''
      成功案例
@@ -139,13 +139,11 @@ def sexample_desc(*args,**kwargs):
     :param kwargs:
     :return:
     '''
+    cid = kwargs.get('cid')
     template = args[0]
-    page = request.args.get("page")
-    page = intcheck(page)
-    limit = request.args.get('limit')
-    limit = limitcheck(limit)
-    examples = session.query(Cases).all()[(page-1)*limit:page*limit]
-    return render_template(template,examples = examples)
+    exampleinfo = session.query(Cases).filter_by(cid = cid).first()
+    session.close()
+    return render_template(template,exampleinfo = exampleinfo)
 
 
 

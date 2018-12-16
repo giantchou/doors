@@ -1,0 +1,23 @@
+{% extends 'home/m-base.html' %}
+{% block title %}{{ exampleinfo.title }}{% endblock %}
+{% block keywords %}{{ exampleinfo.keyword }}{% endblock %}
+{% block description %}{{ exampleinfo.abstract }}{% endblock %}
+{% block customcss %}
+
+{% endblock %}
+
+{% block content%}
+    <div class="layui-row chc-product-detail">
+        <div class="layui-col-xs12 p-header">
+            {% autoescape off %}
+            {{ exampleinfo.content }}
+            {% endautoescape %}
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block customjs %}
+
+
+{% endblock %}
