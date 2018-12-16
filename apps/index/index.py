@@ -4,6 +4,7 @@
 
 from flask import Blueprint,render_template,\
     request,jsonify
+import json
 from apps.utils import pc_and_m_transform,intcheck,limitcheck
 
 index = Blueprint("index",__name__)
@@ -174,6 +175,8 @@ def buyuser():
     params = request.form
     print("data",request.data)
     print(params)
+    if not params:
+        params = json.loads(request.data)
     print(params.get('userdesc'))
     customer = Customer(tel=params.get('telnumber'),name=params.get('username'),
                         email=params.get("email"),address=params.get('address'),
