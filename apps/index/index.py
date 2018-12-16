@@ -8,7 +8,7 @@ from apps.utils import pc_and_m_transform
 
 index = Blueprint("index",__name__)
 import time
-from ..models.model import Products,Customer,db
+from ..models.model import Products,Customer,session
 
 
 
@@ -21,9 +21,9 @@ def show(*args,**kwargs):
     :return:
     '''
     template = args[0]
-    product_recomment = Products.query.limit(4)
-    hot_product = Products.query.order_by('hot').limit(4)
-    db.session.close()
+    product_recomment = session.query(Products).limit(4)
+    hot_product = session.query(Products).order_by('hot').limit(4)
+    session.close()
     return render_template(template,product_recomment = product_recomment,
                            hot_product = hot_product)
 
@@ -45,10 +45,10 @@ def products(*args,**kwargs):
     limit = request.args.get('limit')
     limit = limitcheck(limit)
     if cid:
-        products = Products.query.filter_by(cate1=cid).all()[(page-1)*limit:page*limit]
+        products = session.query(Products).filter_by(cate1=cid).all()[(page-1)*limit:page*limit]
     else:
-        products = Products.query.all()[(page - 1) * limit:page * limit]
-    db.session.close()
+        products = session.query(Products).all()[(page - 1) * limit:page * limit]
+    session.close()
     return render_template(template,products=products,page=page)
 
 @index.route("/products/<int:pid>.html")
@@ -61,8 +61,8 @@ def product_detail(*args,**kwargs):
     '''
     pid = kwargs.get('pid')
     template = args[0]
-    productinfo = Products.query.filter_by(pid = pid).first()
-    db.session.close()
+    productinfo = session.query(Products).filter_by(pid = pid).first()
+    session.close()
     return render_template(template,productinfo = productinfo)
 
 
@@ -130,9 +130,9 @@ def address(*args,**kwargs):
 
 @index.route("/sitemap")
 def sitemap():
-    _productids = Products.query.all()
+    _productids = session.query(Products).all()
     idlist = [(i.pid,i.format_date())for i in _productids]
-    db.session.close()
+    session.close()
     return render_template('sitemap/sitemap.xml', idlist=idlist)
 
 
@@ -145,8 +145,8 @@ def buyuser():
     customer = Customer(tel=params.get('telnumber'),name=params.get('username'),
                         email=params.get("email"),address=params.get('address'),
                         desc=params.get("userdesc"),addtimes=int(time.time()))
-    db.session.add(customer)
-    db.session.commit()
+    session.add(customer)
+    session.commit()
     data['code'] = 0
     data['msg'] = '提交成功'
     return jsonify(data)
