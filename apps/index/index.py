@@ -172,6 +172,7 @@ def sitemap():
 def buyuser():
     data = {}
     params = request.form
+    print("data",request.data)
     print(params)
     print(params.get('userdesc'))
     customer = Customer(tel=params.get('telnumber'),name=params.get('username'),
