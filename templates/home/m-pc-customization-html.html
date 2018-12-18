@@ -36,19 +36,26 @@
                   </div>
                     <hr>
                   <div class="layui-form-item">
-                      <input type="text" id="username" name="username" required   placeholder="姓名" autocomplete="off" class="layui-input">
+                      <input type="text" id="username" name="username" required   placeholder="您的称呼" autocomplete="off" class="layui-input">
                   </div>
                   <div class="layui-form-item">
                       <input type="text" name="telnumber" required  lay-verify="required|phone" placeholder="电话（必填）" autocomplete="off" class="layui-input">
                   </div>
                   <div class="layui-form-item">
-                      <input type="text" id="email" name="email"  placeholder="email邮箱" autocomplete="off" class="layui-input">
+                      <select name="email" lay-filter="aihao">
+                        <option value="悬浮折叠门">悬浮折叠门</option>
+                        <option value="无轨悬浮门">无轨悬浮门</option>
+                        <option value="伸缩平移门" selected="">伸缩平移门</option>
+                        <option value="电动伸缩门">电动伸缩门</option>
+                        <option value="别墅庭院门">别墅庭院门</option>
+                        <option value="旋转门">旋转门</option>
+                      </select>
                   </div>
                   <div class="layui-form-item">
                       <input type="text" id="address" name="address"  placeholder="地址" autocomplete="off" class="layui-input">
                   </div>
                   <div class="layui-form-item layui-form-text">
-                      <textarea id="userdesc" name="userdesc" placeholder="请输入详细留言信息" class="layui-textarea" ></textarea>
+                      <textarea id="userdesc" name="userdesc" placeholder="请简述您的定制要求" class="layui-textarea" ></textarea>
                   </div>
                   <div class="layui-form-item">
                       <button class="layui-btn layui-btn-normal" lay-submit lay-filter="formDemo">立即提交</button>
