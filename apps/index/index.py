@@ -24,7 +24,7 @@ def show(*args,**kwargs):
     '''
     template = args[0]
     mysqlhandle = MysqlHandle(**mysqlconfig)
-    product_recomment = mysqlhandle.select("select * from product limit 0,4")
+    product_recomment = mysqlhandle.select("select * from product order by addtime desc limit 0,4")
     hot_product = mysqlhandle.select("select * from product order by hot desc limit 0,4")
     return render_template(template,product_recomment = product_recomment,
                            hot_product = hot_product)
@@ -51,13 +51,13 @@ def products(*args,**kwargs):
         previous_page = 1
     next_page = page +1
     if cid:
-        products = mysqlhandle.select("select * from product where cate1={cate1} limit {start},{step}".format(
+        products = mysqlhandle.select("select * from product where cate1={cate1}  order by addtime desc limit {start},{step}".format(
             cate1 = cid,
             start = (page-1)*limit,
             step = limit
         ))
     else:
-        products = mysqlhandle.select("select * from product  limit {start},{step}".format(
+        products = mysqlhandle.select("select * from product order by addtime desc limit {start},{step}".format(
             start = (page-1)*limit,
             step = limit
         ))
@@ -126,7 +126,7 @@ def honour(*args,**kwargs):
 @pc_and_m_transform({"m-template":"home/m-success-example.html","pc-template":"home/success-example.html"})
 def sexample(*args,**kwargs):
     '''
-     成功案例
+     成功案例分类页
     :param args:
     :param kwargs:
     :return:
@@ -145,11 +145,11 @@ def sexample(*args,**kwargs):
         previous_page = 1
     next_page = page +1
     if cid:
-        examples  = mysqlhandle.select("select * from cases where cid = {cid} limit {start},{step}".format(
+        examples  = mysqlhandle.select("select * from cases where cate1 = {cid} ORDER  by addtime DESC limit {start},{step}".format(
                                                 cid=cid,start=(page-1)*limit,
                                                         step = limit))
     else:
-        examples = mysqlhandle.select("select * from cases limit {start},{step}".format(start=(page-1)*limit,
+        examples = mysqlhandle.select("select * from cases  ORDER  by addtime DESC limit {start},{step}".format(start=(page-1)*limit,
                                                         step = limit))
     count = len(examples)
     return render_template(template,examples = examples,previous_page = previous_page,
@@ -162,7 +162,7 @@ def sexample(*args,**kwargs):
 @pc_and_m_transform({"m-template":"home/m-example-detail.html","pc-template":"home/success-example.html"})
 def sexample_desc(*args,**kwargs):
     '''
-     成功案例
+     成功案例详情页
     :param args:
     :param kwargs:
     :return:
