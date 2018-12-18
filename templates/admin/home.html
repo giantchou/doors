@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="/static/images/favicon/favicon.ico" />
+  <link rel="bookmark" href="/static/images/favicon/favicon.ico" type="image/x-icon"　/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>电动门,伸缩门,自动伸缩门,旋转门,车牌识别系统,河南伸缩门厂家 </title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  
+  <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+    {% block customcss %}
+    {% endblock %}
+<style>
+    html,body{
+        height: 100%;
+            background-color: #f2f2f2;
+        }
+    .layui-footer{left: 0px!important;text-align: center;}
+    .chc-statistics{background-color:#f2f2f2 ;text-align: center;padding: 5px;    line-height: 35px;}
+    .chc-statistics p cite{color: #5FB878;font-size: 28px;}
+
+</style>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">chc后台布局</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><i class="layui-icon layui-icon-spread-left"></i></li>
+      <li class="layui-nav-item layui-hide-xs"><a href="">控制台</a></li>
+      <li class="layui-nav-item layui-hide-xs"><a href="">商品管理</a></li>
+      <li class="layui-nav-item layui-hide-xs"><a href="">用户</a></li>
+      <li class="layui-nav-item layui-hide-xs">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item ">
+        <a href="javascript:;">
+          <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
+          贤心
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item layui-hide-xs"><a href="">退了</a></li>
+    </ul>
+  </div>
+
+  <div class="layui-side layui-bg-black layui-hide-xs">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">所有商品</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="javascript:;">列表三</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">解决方案</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">云市场</a></li>
+        <li class="layui-nav-item"><a href="">发布商品</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="layui-body layui-hide-xs" style="padding: 10px;">
+    <!-- 内容主体区域 -->
+    {% include "admin/content.html" %}
+  </div>
+  <div class="layui-fluid layui-hide-md" style="padding-top: 10px;">
+      {% include "admin/content.html" %}
+  </div>
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © chc.org - 底部固定区域
+  </div>
+</div>
+<!--悬浮右下角-->
+<div>
+    <ul class="layui-fixbar">
+        <li class="layui-icon" lay-type="bar1" style=""></li>
+        <li class="layui-icon layui-fixbar-top" lay-type="top" style="display: list-item;"></li>
+    </ul>
+</div>
+
+<script src="/static/layui/layui.js" charset="utf-8"></script>
+<script src="/static/js/jquery.min.js" charset="utf-8"></script>
+<script>
+layui.use('element', function(){
+  var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+  //监听导航点击
+  element.on('nav(demo)', function(elem){
+    //console.log(elem)
+    layer.msg(elem.text());
+  });
+});
+    var clicknumber = 0;
+    $(".layui-icon-spread-left").on("click",function () {
+        if(clicknumber%2==0){
+            $(".layui-side").animate({"left":'-200px'});
+            $(".layui-body").animate({'left':"0px"});
+        }else {
+            $(".layui-side").animate({"left":'-0px'});
+            $(".layui-body").animate({'left':"200px"});
+        }
+        clicknumber+=1;
+    })
+</script>
+{% block customjs %}
+{% endblock %}
+
+</body>
+</html>
