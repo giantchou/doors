@@ -189,6 +189,13 @@ def address(*args,**kwargs):
     template = args[0]
     return render_template(template)
 
+@index.route("/customization")
+def customization():
+    '''
+    客户留言页
+    :return:
+    '''
+    return render_template("home/m-pc-customization-html.html")
 @index.route("/sitemap")
 def sitemap():
     mysqlhandle = MysqlHandle(**mysqlconfig)
