@@ -8,7 +8,7 @@ admin = Blueprint("admin", __name__)
 
 @admin.route("/")
 def home():
-    return render_template('admin/test.html')
+    return render_template('admin/home.html')
 
 @admin.route("/login")
 def login():
