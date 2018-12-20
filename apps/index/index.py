@@ -220,5 +220,5 @@ def buyuser():
                             desc=params.get("userdesc"), addtimes=int(time.time())
                         ))
     data['code'] = 0
-    data['msg'] = '提交成功,会及时联系您。'
+    data['msg'] = '提交成功，稍后会有专业的售前工程师与您联系，敬请留意接听电话。'
     return jsonify(data)

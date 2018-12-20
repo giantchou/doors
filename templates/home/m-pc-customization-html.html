@@ -84,10 +84,15 @@ layui.use(['form','layer'], function(){
         dataType: "json",
         data:data.field,
         success:function (result) {
-            layer.msg(result.msg,{time:2000});
+            //layer.msg(result.msg,{time:2000});
+            layer.alert(result.msg, {
+                skin: 'layui-layer-molv'
+                ,closeBtn: 0
+                ,anim: 4 //动画类型
+              });
             setTimeout(function () {
                 window.location.reload()
-            },2000)
+            },4000)
         }
 
     });
