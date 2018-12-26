@@ -24,7 +24,7 @@ html body{background-color: #f2f2f2;color: #666;height: 100%}
 
 }
 .chc-footer ul{list-style: none;width: 100%}
-.chc-footer ul li{list-style: none;float: left;text-align: center;width: 25%;color: #fff}
+.chc-footer ul li{list-style: none;float: left;text-align: center;width: 20%;color: #fff}
 .chc-footer ul li a{color: #fff}
 .layui-fixbar {
     bottom: 56px!important;
