@@ -102,9 +102,10 @@ def main():
     My_cxn = MySQLdb.connect(**Mysql_conf)
     My_cur = My_cxn.cursor()
 
-    My_cur.execute('SELECT title,content,pid FROM product where  hot = 0 limit 3')
+    My_cur.execute('SELECT title,from_web,cate1,cate2 FROM product_bakup')
     result = My_cur.fetchall()
     for res in result:
+        """
         liyou = random.choice(Liyou)
         kw = res[0].split()[0].split('-')[0] + u',伸缩门,电动门,电动伸缩门,伸缩门厂家,电动伸缩门厂家,河南电动伸缩门厂家'
         doc = PyQuery("<div>" + res[1] + "</div>")
@@ -119,9 +120,10 @@ def main():
         #doc("a").remove()
         #simple_content = get_simple_content(doc)
         content = doc.html()
-        #My_cur.execute('UPDATE product SET keyword="%s",content="%s",hot=1 WHERE pid=%s'%(kw,content,res[-1]))
-        #
-        print content, '\r\n', res[1], '\r\n\r\n'
+        """
+        My_cur.execute('UPDATE product SET title="%s",cate1=%s,cate2=%s WHERE from_web="%s"'%(res[0],res[-2],res[-1],res[1]))
+
+    My_cxn.commit()
 
 if __name__ == '__main__':
     main()
