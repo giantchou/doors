@@ -15,7 +15,6 @@
 import MySQLdb
 import MySQLdb.cursors
 import sys
-from pyquery import PyQuery
 import re
 
 reload(sys)
@@ -68,7 +67,7 @@ if __name__ == '__main__':
          'sl_sql':"""SELECT pid AS id,content FROM product WHERE mark=0"""},
         {'up_sql': """UPDATE cases SET content='%s',mark=1 where cid=%s""",
           'sl_sql': """SELECT cid AS id,content FROM cases WHERE mark=0"""},
-        {'up_sql': """UPDATE news SET content='%s',mark=1 where pid=%s""",
+        {'up_sql': """UPDATE news SET content='%s',mark=1 where nid=%s""",
          'sl_sql': """SELECT nid AS id,content FROM news WHERE mark=0"""}
     ]
 

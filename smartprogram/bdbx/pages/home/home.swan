@@ -1,0 +1,39 @@
+<view class="container">
+    <form bindsubmit="formSubmitHandle" bindreset="formReset" report-submit>
+       <view class="header-img">
+           <text>填写你的招聘要求</text>
+       </view>
+       <view class="bx-input">
+            <label class="section date-section" for="section4">
+                <view class="section-title">年龄段:</view>
+                <picker id="section4" mode="selector" value="{{BxPeople}}"  range="{{BxPeople}}" bind:change="peopleChange" >
+                    <view class="select-people">
+                        {{BxPeople[peopleindex]}}
+                    </view>
+                </picker>
+            </label>
+        </view>
+        <view class="bx-input">
+            <label class="section date-section" for="section4">
+                <view class="section-title">学历:</view>
+                <picker id="section4" mode="selector" value="{{BxType}}"  range="{{BxType}}" bind:change="typeChange" >
+                    <view class="select-people">
+                        {{BxType[typeindex]}}
+                    </view>
+                </picker>
+            </label>
+        </view>
+        <view class="bx-input">
+            <input name="bxname" placeholder="您的称呼:" placeholder-style="color:#999"/>
+        </view>
+        <view class="bx-input">
+            <input name="bxtel" type="number" placeholder="联系方式(必填):" placeholder-style="color:#999"/>
+        </view>
+        <view class="bx-input">
+            <input name="bxcity" placeholder="所在城市:" placeholder-style="color:#999"/>
+        </view>
+        <view class="btn-content">
+            <button type="default" class="form-button btn bx-btn" form-type="submit">提交招聘要求</button>
+        </view>
+    </form>
+</view>
