@@ -26,8 +26,10 @@ def show(*args,**kwargs):
     mysqlhandle = MysqlHandle(**mysqlconfig)
     product_recomment = mysqlhandle.select("select * from product order by addtime desc limit 0,4")
     hot_product = mysqlhandle.select("select * from product order by hot desc limit 0,4")
+    news = mysqlhandle.select("select * from news order by addtime desc limit 0,5")
     return render_template(template,product_recomment = product_recomment,
-                           hot_product = hot_product)
+                           hot_product = hot_product,
+                           news = news)
 
 @index.route("/products/<int:cid>/")
 @pc_and_m_transform({"m-template":"home/m-products.html","pc-template":"home/products.html"})
@@ -94,7 +96,16 @@ def newslist(*args,**kwargs):
     :return:
     '''
     template = args[0]
-    return render_template(template,)
+    page = int(request.args.get("page",1))
+    limit = 10
+    mysqlhandle = MysqlHandle(**mysqlconfig)
+    news = mysqlhandle.select("select * from news order by addtime desc limit {start},{limit}".format(
+        start = (page-1)*limit,
+        limit = limit
+    ))
+    for i in news:
+        i['addtime'] = time.strftime("%Y-%m-%d",time.localtime(i['addtime']))
+    return render_template(template,news=news)
 
 
 @index.route("/news/<int:nid>.html")
@@ -107,7 +118,12 @@ def newsdetail(*args,**kwargs):
     :return:
     '''
     nid = kwargs.get("nid")
-    return render_template(args[0])
+    mysqlhandle = MysqlHandle(**mysqlconfig)
+    newsinfo = mysqlhandle.select("select * from news where nid = {nid}".format(nid=nid))
+    if newsinfo:
+        newsinfo = newsinfo[0]
+        newsinfo['addtime'] = time.strftime("%Y-%m-%d", time.localtime(newsinfo['addtime']))
+    return render_template(args[0],newsinfo = newsinfo)
 
 @index.route("/aboutus.html")
 @pc_and_m_transform({"m-template":"home/m-about-us.html","pc-template":"home/about-us.html"})

@@ -155,21 +155,11 @@
         <div class="layui-col-xs12 dongtai">
             <img src="/static/images/m/20181012113001_31978.jpg">
         </div>
+        {% for i in news %}
         <div class="layui-col-xs12 news">
-            <a href="/news/1.html"><i class="layui-icon layui-icon-triangle-r"></i>喜报！北京金洋九峰悬浮折叠门和车牌识别系统已通过中国汽车技术研究中心验收！</a>
+            <a href="/news/{{ i.nid }}.html"><i class="layui-icon layui-icon-triangle-r"></i>{{ i.title }}</a>
         </div>
-        <div class="layui-col-xs12 news">
-            <a href="/news/1.html"><i class="layui-icon layui-icon-triangle-r"></i>喜报！北京金洋九峰悬浮折叠门和车牌识别系统已通过中国汽车技术研究中心验收！</a>
-        </div>
-        <div class="layui-col-xs12 news">
-            <a href=""><i class="layui-icon layui-icon-triangle-r"></i>喜报！北京金洋九峰悬浮折叠门和车牌识别系统已通过中国汽车技术研究中心验收！</a>
-        </div>
-        <div class="layui-col-xs12 news">
-            <a href=""><i class="layui-icon layui-icon-triangle-r"></i>喜报！北京金洋九峰悬浮折叠门和车牌识别系统已通过中国汽车技术研究中心验收！</a>
-        </div>
-        <div class="layui-col-xs12 news">
-            <a href=""><i class="layui-icon layui-icon-triangle-r"></i>喜报！北京金洋九峰悬浮折叠门和车牌识别系统已通过中国汽车技术研究中心验收！</a>
-        </div>
+        {% endfor %}
         <div class="layui-col-xs12 news-more">
             <a href="/news"><button class="layui-btn layui-btn-primary chc-default-btn">查看更多</button></a>
         </div>
