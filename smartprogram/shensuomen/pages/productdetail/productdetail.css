@@ -1,0 +1,16 @@
+.container{margin-top: 1px;}
+.product{height: 2.5rem;width: 100%;
+background-color: #fff;
+box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+overflow: hidden;padding: 10px;}
+.product image{height: 100%;width: 100%;text-align: center;}
+.content{
+    background-color: #fff;
+    padding: 10px;
+    height: 3.25rem;
+    /* text-indent: 0.3rem; */
+    line-height: 0.25rem;
+}
+.hot{background-color: #FF5722;color: #fff;font-size: 13px;text-align: center}
+.more_labels{background-color: #fff;padding: 10px;color: #666}
+.more_labels text{font-size: 12px;}

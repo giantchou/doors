@@ -1,0 +1,38 @@
+<view class="container">
+    <!--to do-->
+    <view class="cate">
+        <scroll-view
+            scroll-x
+            class="scroll-view"
+            bind:scrolltoupper="toLeft"
+            bind:scrolltolower="toRight"
+            scroll-into-view="one"
+            upper-threshold="1"
+            lower-threshold="1"
+            bind:scroll="myscroll"
+        >
+            <view s-for="catelist" id="{{item.id}}" data-swan="{{item.id}}" bindtap="goToCate"  class="color-a row-view {{item.css}}">{{item.name}}</view>
+        </scroll-view>
+    </view>
+
+    <view class="product_list">
+        <scroll-view
+            scroll-y
+            class="scroll-view-y"
+            bind:scrolltoupper="upper"
+            bind:scrolltolower="lower"
+            scroll-into-view="four"
+            upper-threshold="10"
+            lower-threshold="10"
+            bind:scroll="myscroll"
+            enable-back-to-top="true"
+        >
+            <view class="imageshow" s-for="productexample" bindtap="goToProductDetail">
+                <image class="loacl_img" src="{{item.image}}" data-swan="{{item.pid}}"></image>
+                <view class="product_title">
+                    <text>{{item.name}}</text>
+                </view>
+            </view>
+        </scroll-view>
+    <view>
+</view>

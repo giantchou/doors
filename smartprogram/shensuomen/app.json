@@ -1,0 +1,48 @@
+{
+    "debug": false,
+    "pages": [
+        "pages/products/products",
+        "pages/custom/custom",
+        "pages/aboutus/aboutus",
+        "pages/productdetail/productdetail"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "专家",
+        "navigationBarTextStyle": "black",
+        "backgroundTextStyle": "black",
+        "enablePullDownRefresh": false
+    },
+    "networkTimeout": {
+        "request": 30000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+    },
+    "tabBar": {
+        "color": "#a2a2a2",
+        "selectedColor": "#3388ff",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/products/products",
+                "iconPath": "images/list0.png",
+                "selectedIconPath": "images/list0.png",
+                "text": "产品列表"
+            },
+            {
+                "pagePath": "pages/custom/custom",
+                "iconPath": "images/custom.png",
+                "selectedIconPath": "images/custom.png",
+                "text": "在线定制"
+            },
+            {
+                "pagePath": "pages/aboutus/aboutus",
+                "iconPath": "images/aboutus.png",
+                "selectedIconPath": "images/aboutus.png",
+                "text": "关于我们"
+            }
+        ]
+    }
+}
