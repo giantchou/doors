@@ -3,7 +3,7 @@
 # @time: 2018/11/20
 
 from flask import Blueprint,render_template,\
-    request,jsonify
+    request,jsonify,make_response
 import json
 from apps.setting import mysqlconfig
 from apps.utils import pc_and_m_transform,intcheck,\
@@ -218,7 +218,10 @@ def sitemap():
     _productids = mysqlhandle.select("select pid,addtime from product")
     idlist = [(i.pid,time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(i.addtime)))
               for i in _productids]
-    return render_template('sitemap/sitemap.xml', idlist=idlist)
+    sitemap_xml = render_template('sitemap/sitemap.xml', idlist=idlist)
+    response = make_response(sitemap_xml)
+    response.headers["Content-Type"] = "application/xml"
+    return response
 
 
 @index.route("/buyuser",methods=['POST'])
