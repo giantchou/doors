@@ -212,7 +212,7 @@ def customization():
     :return:
     '''
     return render_template("home/m-pc-customization-html.html")
-@index.route("/sitemap")
+@index.route("/sitemap.xml")
 def sitemap():
     mysqlhandle = MysqlHandle(**mysqlconfig)
     _productids = mysqlhandle.select("select pid,addtime from product")
