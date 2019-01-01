@@ -6,4 +6,10 @@
         <lastmod>{{ date }}</lastmod>
     </sitemap>
 {% endfor %}
+{% for id,date in newsid %}
+    <sitemap>
+        <loc>https://m.doors360.cn/news/{{ id }}.html</loc>
+        <lastmod>{{ date }}</lastmod>
+    </sitemap>
+{% endfor %}
 </sitemapindex>

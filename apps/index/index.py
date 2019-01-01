@@ -216,9 +216,12 @@ def customization():
 def sitemap():
     mysqlhandle = MysqlHandle(**mysqlconfig)
     _productids = mysqlhandle.select("select pid,addtime from product")
+    _news = mysqlhandle.select("select pid,addtime from news")
     idlist = [(i['pid'],time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(i['addtime'])))
               for i in _productids]
-    sitemap_xml = render_template('sitemap/sitemap.xml', idlist=idlist)
+    newsid = [(i['nid'],time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(i['addtime'])))
+              for i in _news]
+    sitemap_xml = render_template('sitemap/sitemap.xml', idlist=idlist,newsid=newsid)
     response = make_response(sitemap_xml)
     response.headers["Content-Type"] = "application/xml"
     return response

@@ -233,6 +233,7 @@ padding: 5px;}
     font-weight: bold;
 }
 .chc-news-content{line-height: 30px;font-size: 17px;color: #333}
+.chc-news-content img{width: 100%!important;}
 
 /*关于金洋*/
 .chc-about-us{background-color: #fff;padding: 5px}
