@@ -216,14 +216,14 @@ def customization():
 def sitemap():
     mysqlhandle = MysqlHandle(**mysqlconfig)
     _productids = mysqlhandle.select("select pid,addtime from product")
-    _news = mysqlhandle.select("select pid,addtime from news")
-    _news = mysqlhandle.select("select pid,addtime from cases")
+    _news = mysqlhandle.select("select nid,addtime from news")
+    _examples = mysqlhandle.select("select cid,addtime from cases")
     idlist = [(i['pid'],time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(i['addtime'])))
               for i in _productids]
     newsid = [(i['nid'],time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(i['addtime'])))
               for i in _news]
     examples =[(i['cid'],time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(i['addtime'])))
-              for i in _news]
+              for i in _examples]
     sitemap_xml = render_template('sitemap/sitemap.xml',
                                   idlist=idlist,
                                   newsid=newsid,
