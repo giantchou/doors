@@ -2,23 +2,12 @@
 # @author: chenhuachao
 # @time: 2018/11/22
 
-from flask import request
+from flask import request,jsonify
 from functools import wraps
 import pymysql.cursors
-
-mysqlconfig={
-    "host":"mysql.site.bao361.cn",
-    "port":3306,
-    "user":"bx_user",
-    "passwd":"gc895316",
-    "db":"bx_abc",
-    "cursorclass":pymysql.cursors.DictCursor,
-     "charset":'utf8'
-}
-
-
-
-
+import time
+from hashlib import sha1
+from .setting import mysqlconfig
 
 
 class MysqlHandle(object):
@@ -62,4 +51,41 @@ def pc_and_m_transform(params):
                 args = args.__add__((params.get('pc-template'),))
                 return func(*args,**kwargs)
         return _logic
+    return wrapper
+
+
+
+def api_login_auth(func):
+    '''
+    api认证
+    :return:
+    '''
+
+    @wraps(func)
+    def wrapper():
+        args = request.args
+        api_key = args.get('api_key') # api_key
+        timestrap = args.get('timestrap') #时间戳
+        random_str = args.get('random_str','') # 随机字符串 16位
+        sign = args.get('sign')
+        try:
+            if not api_key or not timestrap or len(random_str)!=16 or not sign:
+                raise Exception("参数错误")
+            _mysqlhandle = MysqlHandle(**mysqlconfig)
+            _result = _mysqlhandle.select("select * from  user_security_key where api_key = '{api_key}'".format(
+                api_key = api_key
+            ))
+            security_key = _result[0]['security_key']  if _result else ""
+            assert security_key,Exception('api_key参数错误')
+            if time.time()>int(timestrap)+60:
+                raise Exception("请求已过期")
+            sort_str = ''.join(sorted([api_key,timestrap,random_str,security_key],reverse=False))
+            _sha1 = sha1()
+            _sha1.update(sort_str.encode())
+            new_sign = _sha1.hexdigest()
+            if new_sign != sign:
+                raise Exception("认证错误")
+            return func()
+        except Exception as e:
+            return jsonify({"code":1,"msg":str(e)})
     return wrapper
