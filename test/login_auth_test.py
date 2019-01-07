@@ -15,7 +15,8 @@ def main():
     _sha1= sha1()
     _sha1.update(sort_str.encode())
     sign = _sha1.hexdigest()
-    url ='http://127.0.0.1:5000/api/test/?api_key='+api_key+"&timestrap="+timestrap+"&random_str="+random_str+"&sign="+sign
+    url ='http://127.0.0.1:5000/api/product/detail/?api_key='+api_key+"&timestrap="+timestrap+"&random_str="+random_str+"&sign="+sign+"&pid=1"
+    print(url)
     resq = requests.get(url)
     print(resq.json())
 

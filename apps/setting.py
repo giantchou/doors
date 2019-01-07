@@ -10,7 +10,7 @@
 # db_name = ''
 # import socket
 import pymysql.cursors
-debug = True
+debug = False
 if debug:
     sqlurl = 'mysql+pymysql://root:123456@127.0.0.1:3306/doors?charset=utf8&autocommit=true' #测试
     mysqlconfig = {
