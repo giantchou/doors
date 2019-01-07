@@ -34,10 +34,9 @@ def products():
     page = int(request.args.get("page",1))
     mysqlhandle = MysqlHandle(**mysqlconfig)
     _products = mysqlhandle.select("select * from product where "
-                                   "cate1 = {cate1} order by addtime desc limit {start},{limit}".format(
+                                   "cate1 = {cate1} order by addtime desc limit 0,{limit}".format(
         cate1 = cate1,
-        start=(page-1)*limit,
-        limit=limit))
+        limit=limit*page))
     _data['code'] = 0
     for i in _products:
         if i['addtime']:
