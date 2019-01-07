@@ -29,7 +29,7 @@ def cate():
 @api_login_auth
 def products():
     _data = {}
-    cate1 = request.args.get('cate1')
+    cate1 = request.args.get('cate1',1)
     limit = int(request.args.get("limit",10))
     page = int(request.args.get("page",1))
     mysqlhandle = MysqlHandle(**mysqlconfig)
