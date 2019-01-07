@@ -65,11 +65,11 @@ def api_login_auth(func):
     def wrapper():
         args = request.args
         api_key = args.get('api_key') # api_key
-        timestrap = args.get('timestrap') #时间戳
+        timestamp = args.get('timestamp') #时间戳
         random_str = args.get('random_str','') # 随机字符串 16位
         sign = args.get('sign')
         try:
-            if not api_key or not timestrap or len(random_str)!=16 or not sign:
+            if not api_key or not timestamp or len(random_str)!=16 or not sign:
                 raise Exception("参数错误")
             _mysqlhandle = MysqlHandle(**mysqlconfig)
             _result = _mysqlhandle.select("select * from  user_security_key where api_key = '{api_key}'".format(
@@ -77,9 +77,9 @@ def api_login_auth(func):
             ))
             security_key = _result[0]['security_key']  if _result else ""
             assert security_key,Exception('api_key参数错误')
-            if time.time()>int(timestrap)+60:
+            if time.time()>int(timestamp)+60:
                 raise Exception("请求已过期")
-            sort_str = ''.join(sorted([api_key,timestrap,random_str,security_key],reverse=False))
+            sort_str = ''.join(sorted([api_key,timestamp,random_str,security_key],reverse=False))
             _sha1 = sha1()
             _sha1.update(sort_str.encode())
             new_sign = _sha1.hexdigest()
