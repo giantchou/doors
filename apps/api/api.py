@@ -29,14 +29,17 @@ def cate():
 @api_login_auth
 def products():
     _data = {}
-    cate1 = request.args.get('cate1',1)
+    cate1 = request.args.get('cate1')
     limit = int(request.args.get("limit",10))
     page = int(request.args.get("page",1))
     mysqlhandle = MysqlHandle(**mysqlconfig)
-    _products = mysqlhandle.select("select * from product where "
-                                   "cate1 = {cate1} order by addtime desc limit 0,{limit}".format(
-        cate1 = cate1,
-        limit=limit*page))
+    if cate1:
+        sql = "select * from product where cate1 = {cate1} " \
+              "order by addtime desc limit 0,{limit}".format(cate1 = cate1,limit=limit*page)
+    else:
+        sql = "select * from product " \
+              " order by addtime desc limit 0,{limit}".format(limit=limit * page)
+    _products = mysqlhandle.select(sql)
     _data['code'] = 0
     for i in _products:
         if i['addtime']:
