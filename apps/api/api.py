@@ -38,7 +38,7 @@ def products():
               "order by addtime desc limit 0,{limit}".format(cate1 = cate1,limit=limit*page)
     else:
         sql = "select * from product " \
-              " order by addtime desc limit 0,{limit}".format(limit=limit * page)
+              " order by hot desc limit 0,{limit}".format(limit=limit * page)
     _products = mysqlhandle.select(sql)
     _data['code'] = 0
     for i in _products:
