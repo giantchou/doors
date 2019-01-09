@@ -2,10 +2,12 @@
 # @author: chenhuachao
 # @time: 2018/12/15
 from flask import Blueprint,\
-    jsonify,request
+    jsonify,request,make_response
 from apps.setting import mysqlconfig
 from apps.utils import MysqlHandle,api_login_auth
 import time
+import os
+import json
 api = Blueprint("api",__name__)
 
 
@@ -64,7 +66,18 @@ def productdetail():
     _data['data'] = _products
     return jsonify(_data)
 
+@api.route("lottie/<string:jsonname>")
+# @api_login_auth
+def lottie(*args,**kwargs):
+    jsonname  = kwargs.get("jsonname")
 
+    jsondir = os.path.dirname(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))))+'/static/lottie/{}'.format(jsonname)
+    with open(jsondir,'r') as f:
+        jsondata = f.read()
+    response = make_response(jsondata)
+    response.headers["Content-Type"] = "application/text"
+    return response
 
 @api.route("test/")
 @api_login_auth
