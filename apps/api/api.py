@@ -75,9 +75,10 @@ def lottie(*args,**kwargs):
         os.path.abspath(__file__))))+'/static/lottie/{}'.format(jsonname)
     with open(jsondir,'r') as f:
         jsondata = f.read()
-    response = make_response(jsondata)
-    response.headers["Content-Type"] = "application/text"
-    return response
+    data = json.loads(jsondata)
+    # response = make_response(jsondata)
+    # response.headers["Content-Type"] = "application/xhr"
+    return jsonify(data)
 
 @api.route("test/")
 @api_login_auth
