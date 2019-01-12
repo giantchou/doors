@@ -2,8 +2,8 @@ Page({
     data: {
         peopleindex: 1,
         typeindex: 1,
-        BxPeople: ['铝合金','普通钢','不锈钢'],
-        BxType:['立柱','百叶','菱格','方框','其他'],
+        BxPeople: ['不锈钢','铝合金', '不限'],
+        BxType:['立柱','百叶','菱形','百变','不限'],
         // regionData: ['全部', '全部', '全部'],
     },
     peopleChange(e) {
@@ -20,7 +20,12 @@ Page({
             'typeindex',e.detail.value
         );
     },
-
+    // regionChange(e) {
+    //     this.setData(
+    //         'regionData', e.detail.value
+    //     );
+    //     console.log('picker-time changed，值为', e.detail.value);
+    // },
     formSubmitHandle: function(e) {
       console.log('form表单submit：', e.detail.value);
       console.log('form表单submit：', e.detail.formId);
@@ -45,15 +50,16 @@ Page({
       var bxtype = this.data.BxType[this.data.typeindex];
       if(name && bxtel){
         swan.request({
-                url: 'https://m.doors360.cn/customization/', // 仅为示例，并非真实的接口地址
+                url: 'https://m.doors360.cn/buyuser', // 仅为示例，并非真实的接口地址
                 method: 'POST',
                 dataType: 'json',
                 data: {
-                    name: name,
-                    tel: bxtel,
-                    city: bxcity,
+                    username: name,
+                    telnumber: bxtel,
+                    address: bxcity,
                     bxpeople: people,
-                    bxtype: bxtype,
+                    userdesc: bxtype,
+                    email:'',
                 },
                 header: {
                     'content-type': 'application/json' // 默认值

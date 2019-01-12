@@ -2,8 +2,8 @@ Page({
     data: {
         peopleindex: 1,
         typeindex: 1,
-        BxPeople: ['黄铜板','精雕铝', '不锈钢'],
-        BxType:['立柱','百叶','菱格','方框','其他'],
+        BxPeople: ['不锈钢','铝合金', '不限'],
+        BxType:['立柱','百叶','菱形','百变','不限'],
         // regionData: ['全部', '全部', '全部'],
     },
     peopleChange(e) {
@@ -50,15 +50,16 @@ Page({
       var bxtype = this.data.BxType[this.data.typeindex];
       if(name && bxtel){
         swan.request({
-                url: 'https://www.doors360.cn/custom_dz_index_baidu', // 仅为示例，并非真实的接口地址
+                url: 'https://m.doors360.cn/buyuser', // 仅为示例，并非真实的接口地址
                 method: 'POST',
                 dataType: 'json',
                 data: {
-                    name: name,
-                    tel: bxtel,
-                    city: bxcity,
+                    username: name,
+                    telnumber: bxtel,
+                    address: bxcity,
                     bxpeople: people,
-                    bxtype: bxtype,
+                    userdesc: bxtype,
+                    email:'',
                 },
                 header: {
                     'content-type': 'application/json' // 默认值

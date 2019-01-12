@@ -1,0 +1,4 @@
+<view class="container">
+    <!--to do-->
+    <web-view src="https://m.doors360.cn/customization"/>
+</view>

@@ -1,11 +1,14 @@
 {
     "debug": false,
     "pages": [
-        "pages/home/home"
+        "pages/products/products",
+        "pages/custom/custom",
+        "pages/aboutus/aboutus",
+        "pages/productdetail/productdetail"
     ],
     "window": {
         "navigationBarBackgroundColor": "#ffffff",
-        "navigationBarTitleText": "身边的门面形象专家",
+        "navigationBarTitleText": "门面形象设计专家",
         "navigationBarTextStyle": "black",
         "backgroundTextStyle": "black",
         "enablePullDownRefresh": false
@@ -23,10 +26,22 @@
         "backgroundColor": "#ffffff",
         "list": [
             {
-                "pagePath": "pages/home/home",
-                "iconPath": "images/save.png",
-                "selectedIconPath": "images/save.png",
-                "text": "别墅庭院大门"
+                "pagePath": "pages/products/products",
+                "iconPath": "images/list0.png",
+                "selectedIconPath": "images/list0.png",
+                "text": "产品列表"
+            },
+            {
+                "pagePath": "pages/custom/custom",
+                "iconPath": "images/custom.png",
+                "selectedIconPath": "images/custom.png",
+                "text": "在线定制"
+            },
+            {
+                "pagePath": "pages/aboutus/aboutus",
+                "iconPath": "images/aboutus.png",
+                "selectedIconPath": "images/aboutus.png",
+                "text": "关于我们"
             }
         ]
     }
